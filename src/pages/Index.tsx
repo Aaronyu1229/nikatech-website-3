@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import PainSection from '@/components/PainSection';
 import SolutionSection from '@/components/SolutionSection';
-import CompareSection from '@/components/CompareSection';
+import WhyUsSection from '@/components/WhyUsSection';
 import ProcessSection from '@/components/ProcessSection';
 import FooterSection from '@/components/FooterSection';
 
@@ -30,7 +30,7 @@ const Index = () => {
       <HeroSection />
       <PainSection />
       <SolutionSection />
-      <CompareSection />
+      <WhyUsSection />
       <ProcessSection />
       <FooterSection />
     </div>

@@ -1,67 +1,109 @@
 import type { LucideIcon } from 'lucide-react';
 import { Factory, Briefcase, ShoppingBag, Truck, MoreHorizontal } from 'lucide-react';
 
-export type IndustryId = 'mfg' | 'pro' | 'ecom' | 'logistics' | 'other';
-
 export interface IndustryOption {
-  id: IndustryId;
+  id: string;
   label: string;
   icon: LucideIcon;
-  hasTextInput?: boolean;
 }
-
-export const industryOptions: IndustryOption[] = [
-  { id: 'mfg', label: '製造業 / 工廠', icon: Factory },
-  { id: 'pro', label: '顧問 / 專業服務', icon: Briefcase },
-  { id: 'ecom', label: '電商 / 零售', icon: ShoppingBag },
-  { id: 'logistics', label: '物流 / 貿易', icon: Truck },
-  { id: 'other', label: '其他', icon: MoreHorizontal, hasTextInput: true },
-];
 
 export interface PainOption {
   id: string;
   label: string;
 }
 
-export const painOptions: PainOption[] = [
-  { id: 'no-leads', label: '客人都靠介紹，沒有新客源' },
-  { id: 'no-traffic', label: '有網站但沒人看' },
-  { id: 'slow-reply', label: '回覆客人太慢，常常漏掉' },
-  { id: 'ad-waste', label: '花了廣告費但不知道效果' },
-  { id: 'no-time', label: '什麼都要自己來，沒時間' },
-];
-
-export type TimelineId = 'asap' | '1-3months' | 'no-rush';
-
 export interface TimelineOption {
-  id: TimelineId;
+  id: string;
   label: string;
 }
 
-export const timelineOptions: TimelineOption[] = [
-  { id: 'asap', label: '急，越快越好' },
-  { id: '1-3months', label: '1-3 個月內' },
-  { id: 'no-rush', label: '不急，先了解' },
-];
+export type PlanTier = 'basic' | 'advanced' | 'full';
 
-export interface RecommendedItem {
-  title: string;
-  desc: string;
+export interface Recommendation {
+  tier: PlanTier;
+  tierName: string;
+  tierLabel: string;
+  features: string[];
 }
 
-export function getRecommendations(painIds: string[]): RecommendedItem[] {
-  const items: RecommendedItem[] = [
-    { title: '品牌網站建置', desc: '你的線上門面' },
-    { title: 'SEO 自動內容系統', desc: '讓客人搜到你' },
+export const industryOptions: IndustryOption[] = [
+  { id: 'manufacturing', label: '製造業 / 工廠', icon: Factory },
+  { id: 'consulting', label: '顧問 / 專業服務', icon: Briefcase },
+  { id: 'ecommerce', label: '電商 / 零售', icon: ShoppingBag },
+  { id: 'logistics', label: '物流 / 貿易', icon: Truck },
+  { id: 'other', label: '其他', icon: MoreHorizontal },
+];
+
+export const painOptions: PainOption[] = [
+  { id: 'no-new-customers', label: '客人都靠介紹，沒有新客源' },
+  { id: 'no-traffic', label: '有網站但沒人看' },
+  { id: 'slow-response', label: '回覆客人太慢，常常漏掉' },
+  { id: 'wasted-ads', label: '花了廣告費但不知道效果' },
+  { id: 'no-time', label: '什麼都要自己來，沒時間' },
+];
+
+export const timelineOptions: TimelineOption[] = [
+  { id: 'urgent', label: '急，越快越好' },
+  { id: 'moderate', label: '1-3 個月內' },
+  { id: 'exploring', label: '不急，先了解' },
+];
+
+export function getRecommendation(painPoints: string[]): Recommendation {
+  const hasSlowResponse = painPoints.includes('slow-response');
+  const hasWastedAds = painPoints.includes('wasted-ads');
+
+  const baseFeatures = [
+    '品牌網站 SEO 架構優化',
+    'SEO 自動內容系統（讓客人搜到你）',
+    '每月成效報表',
+    '每月目標校準會議',
   ];
 
-  if (painIds.includes('slow-reply')) {
-    items.push({ title: '智慧詢價回覆', desc: '不漏接任何商機' });
+  const advancedFeatures = [
+    '圖片自動生成',
+    '數據分析與自動優化',
+    'GEO 生成式搜尋優化',
+  ];
+
+  const fullFeatures = [
+    '五大平台社群監控',
+    '社群口碑策略與執行',
+  ];
+
+  // Full tier: slow-response + any other 2+
+  if (hasSlowResponse && painPoints.length >= 3) {
+    const features = [...baseFeatures, ...advancedFeatures, ...fullFeatures, '智慧詢價自動回覆'];
+    return {
+      tier: 'full',
+      tierName: '全配版',
+      tierLabel: '內容引擎 + 數據大腦 + 社群觸角',
+      features,
+    };
   }
 
-  if (painIds.includes('ad-waste')) {
-    items.push({ title: '數據分析報表', desc: '看清楚錢花在哪' });
+  // Advanced tier: 3+ pain points OR includes wasted-ads
+  if (painPoints.length >= 3 || hasWastedAds) {
+    const features = [...baseFeatures, ...advancedFeatures];
+    if (hasSlowResponse) {
+      features.push('智慧詢價自動回覆');
+    }
+    return {
+      tier: 'advanced',
+      tierName: '進階版',
+      tierLabel: '內容引擎 + 數據大腦',
+      features,
+    };
   }
 
-  return items;
+  // Basic tier
+  const features = [...baseFeatures];
+  if (hasSlowResponse) {
+    features.push('智慧詢價自動回覆');
+  }
+  return {
+    tier: 'basic',
+    tierName: '基礎版',
+    tierLabel: '內容引擎',
+    features,
+  };
 }

@@ -4,6 +4,8 @@ import { MessageCircle } from 'lucide-react';
 
 const navLinks = [
   { label: '首頁', href: '/' },
+  { label: '服務內容', href: '/services' },
+  { label: '方案報價', href: '/pricing' },
   { label: '關於', href: '/about' },
 ];
 
@@ -67,7 +69,7 @@ export default function Navbar() {
             <MessageCircle size={16} strokeWidth={1.5} style={{ color: '#fff' }} />
           </a>
           <Link
-            to="/quiz"
+            to="/contact"
             className="px-5 py-2 text-[0.8125rem] rounded transition-all duration-300 no-underline"
             style={{
               fontFamily: 'var(--font-body)',
@@ -76,7 +78,7 @@ export default function Navbar() {
               fontWeight: 500,
             }}
           >
-            免費測試
+            免費評估
           </Link>
         </div>
 
@@ -146,12 +148,12 @@ export default function Navbar() {
               LINE 聊聊
             </a>
             <Link
-              to="/quiz"
+              to="/contact"
               onClick={() => setOpen(false)}
               className="text-center px-5 py-3 rounded text-sm no-underline"
               style={{ background: '#E8944C', color: '#0C0C0E', fontFamily: 'var(--font-body)', fontWeight: 500 }}
             >
-              免費測試
+              免費評估
             </Link>
           </div>
         </div>

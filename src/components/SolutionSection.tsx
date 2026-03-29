@@ -1,21 +1,25 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Search, MessageSquare, BarChart3 } from 'lucide-react';
+import { FileText, Brain, Radio } from 'lucide-react';
 
-const cards = [
+const layers = [
   {
-    icon: Search,
-    title: '客人自己找上門',
-    description: 'AI 每月自動產出 12 篇文章，針對你的產業客人會搜尋的關鍵字。3-6 個月後，Google 搜尋結果開始出現你。不用投廣告，客人自己來。',
+    number: '01',
+    icon: FileText,
+    title: '內容引擎',
+    description: 'AI 研究你的產業關鍵字 → 自動撰寫 SEO 文章 → 自動發佈到你的網站。每月穩定產出，不需要你動手。',
   },
   {
-    icon: MessageSquare,
-    title: '詢價 2 分鐘內回覆',
-    description: '客人在網站問報價，系統自動回覆。週末、半夜、過年都不漏接。你週一上班打開看，訊息都處理好了。',
+    number: '02',
+    icon: Brain,
+    title: '數據大腦',
+    description: '追蹤每篇文章的排名表現 → 自動分析哪些有效、哪些要調整 → 下個月的策略自動優化。越做越準，不是做完就丟。',
   },
   {
-    icon: BarChart3,
-    title: '每月一份白話報表',
-    description: '不給你看不懂的數據。告訴你：這個月來了幾個人、幾個人留資料、系統幫你省了幾小時。用數字跟你說值不值得。',
+    number: '03',
+    icon: Radio,
+    title: '社群觸角',
+    description: '監控 PTT、Dcard、Facebook、YouTube、Threads——有人提到你的品牌，第一時間通知你。主動經營口碑，讓網路上都在說你好。',
   },
 ];
 
@@ -30,17 +34,17 @@ export default function SolutionSection() {
             className="block text-xs uppercase tracking-[0.15em] mb-4"
             style={{ fontFamily: 'var(--font-mono)', color: '#5E5B55' }}
           >
-            SOLUTION
+            THE SOLUTION
           </span>
           <h2 data-animate data-delay="1">
-            你什麼都不用管，系統每天自動跑
+            NikaTech 自動化引擎，三層架構
           </h2>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[clamp(1.5rem,3vw,2.5rem)]">
-          {cards.map((card, i) => {
-            const Icon = card.icon;
+        {/* Layer cards */}
+        <div className="flex flex-col gap-8 max-w-[900px] mx-auto">
+          {layers.map((layer, i) => {
+            const Icon = layer.icon;
             return (
               <motion.div
                 key={i}
@@ -48,30 +52,55 @@ export default function SolutionSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.6, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="p-8 rounded-2xl hover-lift card-glow"
+                className="p-8 md:p-12 rounded-2xl"
                 style={{
                   background: '#141416',
                   border: '1px solid rgba(242,239,232,0.06)',
                 }}
               >
-                {/* Icon */}
-                <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
-                  style={{ background: 'rgba(232,148,76,0.1)' }}
-                >
-                  <Icon size={22} strokeWidth={1.5} style={{ color: '#E8944C' }} />
+                <div className="flex items-start gap-6">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+                    style={{ background: 'rgba(232,148,76,0.1)' }}
+                  >
+                    <Icon size={22} strokeWidth={1.5} style={{ color: '#E8944C' }} />
+                  </div>
+                  <div>
+                    <span
+                      className="text-sm mb-2 block"
+                      style={{ fontFamily: 'var(--font-mono)', color: '#E8944C' }}
+                    >
+                      {layer.number}
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-display mb-3" style={{ color: '#F2EFE8' }}>
+                      {layer.title}
+                    </h3>
+                    <p className="text-sm md:text-base leading-relaxed" style={{ color: '#9B978E' }}>
+                      {layer.description}
+                    </p>
+                  </div>
                 </div>
-
-                <h3 className="text-lg font-medium mb-3" style={{ color: '#F2EFE8', fontFamily: 'var(--font-body)' }}>
-                  {card.title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#9B978E' }}>
-                  {card.description}
-                </p>
               </motion.div>
             );
           })}
         </div>
+
+        {/* CTA link */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mt-12"
+        >
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-1 text-sm no-underline transition-colors duration-300"
+            style={{ color: '#E8944C', fontFamily: 'var(--font-body)' }}
+          >
+            看完整服務內容 →
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

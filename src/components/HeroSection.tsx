@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
-import { MessageCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -36,17 +36,6 @@ export default function HeroSection() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ background: '#0C0C0E' }}
     >
-      {/* Ambient video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        style={{ opacity: 0.06, filter: 'blur(2px) saturate(0.3)' }}
-        src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4"
-      />
-
       {/* Aurora gradient mesh overlay */}
       <div className="absolute inset-0 pointer-events-none aurora-bg" />
 
@@ -117,48 +106,43 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-[1200px] mx-auto px-[clamp(1.5rem,4vw,4rem)] text-center pt-[72px]">
         <span
           data-animate
-          className="inline-block px-4 py-1.5 rounded text-xs uppercase tracking-[0.08em] mb-8"
+          className="inline-block px-4 py-1.5 rounded-full text-xs uppercase tracking-[0.08em] mb-8"
           style={{ fontFamily: 'var(--font-mono)', color: '#E8944C', background: 'rgba(232,148,76,0.08)', border: '1px solid rgba(232,148,76,0.15)', backdropFilter: 'blur(8px)' }}
         >
-          AI-Powered Growth System
+          AI-POWERED GROWTH ENGINE
         </span>
 
-        <h1 data-animate data-delay="1" className="mx-auto" style={{ maxWidth: '18ch' }}>
-          你負責做好產品，<br />
-          <em className="text-gradient-animated" style={{ fontStyle: 'italic', WebkitTextFillColor: 'unset', color: '#E8944C' }}>客人的事交給網站。</em>
+        <h1 data-animate data-delay="1" className="font-display mx-auto" style={{ maxWidth: '18ch' }}>
+          一套系統，抵一個行銷部門。
         </h1>
 
         <p
           data-animate
           data-delay="2"
-          className="mt-8 mx-auto leading-relaxed"
-          style={{ color: '#9B978E', fontSize: '1.125rem', maxWidth: '42ch' }}
+          className="mt-8 mx-auto leading-relaxed max-w-2xl"
+          style={{ color: '#9B978E', fontSize: '1.125rem' }}
         >
-          AI 自動寫文章、自動發佈、自動幫你回覆——<br className="hidden md:block" />
-          <strong style={{ color: '#F2EFE8' }}>
-            你的網站不再是裝飾品，而是一台 24 小時在跑的業務機器。
-          </strong>
+          關鍵字研究、文章撰寫、自動發佈、排名追蹤、社群監控——全部自動化。每月幫你省下一個人力，讓客人主動搜到你。
         </p>
 
         <div data-animate data-delay="3" className="flex flex-wrap justify-center gap-4 mt-10">
           <Link
-            to="/quiz"
+            to="/contact"
             className="btn-shimmer group inline-flex items-center gap-2 px-8 py-[0.875rem] rounded text-[0.9375rem] font-medium tracking-[0.03em] no-underline transition-all duration-300 hover:-translate-y-px hover:shadow-lg"
             style={{ fontFamily: 'var(--font-body)', background: '#E8944C', color: '#0C0C0E', boxShadow: '0 4px 20px rgba(232,148,76,0.25)' }}
           >
-            免費測試：你的行業適合怎麼做？
-            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            免費評估你的網站
+            <ArrowRight size={16} className="inline-block transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
-          <a
-            href="https://line.me/ti/p/nikatech"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/pricing"
             className="inline-flex items-center gap-2 px-8 py-[0.875rem] rounded text-[0.9375rem] font-medium no-underline transition-all duration-300 hover:-translate-y-px"
-            style={{ fontFamily: 'var(--font-body)', color: '#fff', border: '1px solid #06C755', background: 'transparent' }}
+            style={{ fontFamily: 'var(--font-body)', color: '#F2EFE8', border: '1px solid rgba(242,239,232,0.06)', background: 'transparent' }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = '#242428')}
+            onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
           >
-            <MessageCircle size={16} strokeWidth={1.5} style={{ color: '#06C755' }} />
-            或直接聊聊
-          </a>
+            看方案與報價
+          </Link>
         </div>
 
         <p
@@ -167,7 +151,7 @@ export default function HeroSection() {
           className="mt-6 text-xs"
           style={{ color: '#5E5B55', fontFamily: 'var(--font-mono)' }}
         >
-          每季限量合作 4 組，目前剩 3 個名額
+          已為 XX 個品牌建立自動化流量系統
         </p>
       </div>
 

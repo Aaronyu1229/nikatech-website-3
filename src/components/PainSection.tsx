@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 
 const pains = [
-  '網站三年前做的，之後就沒動過。',
-  '週末有人問報價，週一才看到，人早就找別家了。',
-  '上次找人做 SEO，簽了半年約，第四個月就聯絡不到人了。',
-  '知道要做數位行銷，但不知道從哪開始，也沒時間研究。',
-  '想請一個行銷，算了一下薪水，還是自己來吧。',
+  '知道要做 SEO，但不知道從哪開始。',
+  '請了 agency，簽了半年約，第四個月就聯絡不到人。',
+  '想請一個行銷，算了一下薪水，還是算了。',
+  '有網站，但三年沒更新，Google 上根本搜不到。',
+  '聽說 ChatGPT 搜尋會取代 Google，但完全不知道怎麼應對。',
 ];
 
 export default function PainSection() {
@@ -19,10 +19,10 @@ export default function PainSection() {
             className="block text-xs uppercase tracking-[0.15em] mb-4"
             style={{ fontFamily: 'var(--font-mono)', color: '#5E5B55' }}
           >
-            PAIN POINTS
+            THE PROBLEM
           </span>
           <h2 data-animate data-delay="1">
-            聽起來像你嗎？
+            你是不是也遇到這些問題？
           </h2>
         </div>
 
@@ -53,10 +53,10 @@ export default function PainSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-16 text-xl md:text-2xl leading-relaxed max-w-[640px]"
+          className="mt-16 text-xl md:text-2xl leading-relaxed max-w-[640px] font-display"
           style={{ color: '#E8944C' }}
         >
-          這些問題，不是請一個人就能解決。你需要的是一套系統。
+          這些問題的根本原因：你缺的不是一個人，是一套系統。
         </motion.p>
       </div>
     </section>
