@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 
 const pains = [
-  '知道要做 SEO，但不知道從哪開始。',
-  '請了 agency，簽了半年約，第四個月就聯絡不到人。',
-  '想請一個行銷，算了一下薪水，還是算了。',
-  '有網站，但三年沒更新，Google 上根本搜不到。',
-  '聽說 ChatGPT 搜尋會取代 Google，但完全不知道怎麼應對。',
+  '花了十幾萬做網站，結果放在那邊長灰塵，Google 上根本搜不到。',
+  '找了一間 SEO 公司，前兩個月很積極，後來就已讀不回了。',
+  '想請一個行銷人員，開 4、5 萬還不一定找得到好的，乾脆自己來。',
+  '客人都是靠朋友介紹，網路上完全沒有新客源進來。',
+  '聽說現在大家都用 ChatGPT 找資料，但完全不知道該怎麼讓 AI 推薦我們。',
 ];
 
 export default function PainSection() {
@@ -25,7 +25,7 @@ export default function PainSection() {
             THE PROBLEM
           </span>
           <h2 data-animate data-delay="1">
-            你是不是也遇到這些問題？
+            這些狀況，是不是很熟悉？
           </h2>
         </div>
 
@@ -64,7 +64,7 @@ export default function PainSection() {
           className="mt-16 text-xl md:text-2xl leading-relaxed max-w-[640px] font-display"
           style={{ color: '#E8944C' }}
         >
-          這些問題的根本原因：你缺的不是一個人，是一套系統。
+          這些問題，靠請一個人解決不了。你需要的是一套跑得動的系統。
         </motion.p>
       </div>
     </section>

@@ -24,11 +24,11 @@ const problemOptions = [
 ];
 
 const reportIncludes = [
-  '網站 SEO 現狀分析',
-  '關鍵字機會評估',
-  '競爭對手比較',
-  '具體改善建議',
-  '預估成效與時程',
+  '你的網站現在 SEO 做得怎樣',
+  '有哪些關鍵字是你的機會',
+  '你的競爭對手做了什麼',
+  '具體可以怎麼改善',
+  '大概多久能看到效果',
 ];
 
 const inputClass =
@@ -88,7 +88,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-4xl md:text-5xl lg:text-6xl mt-6"
             >
-              免費評估你的網站
+              免費幫你的網站做個健檢
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 24 }}
@@ -96,7 +96,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-nika-text-secondary text-lg max-w-2xl mx-auto mt-6"
             >
-              填寫表單，我們會在 48 小時內寄送一份網站健檢報告給你。有數據基礎，再決定要不要合作。
+              填個簡單的表，我們 48 小時內給你一份完整的網站健檢報告。看完數據，你再決定要不要合作——完全免費，不用先付任何費用。
             </motion.p>
           </div>
         </section>
@@ -271,13 +271,13 @@ export default function Contact() {
                     loading="lazy"
                   />
                   <div className="absolute bottom-4 left-4 z-20">
-                    <p className="text-[var(--text-primary)] font-display text-lg">讓數據說話</p>
+                    <p className="text-[var(--text-primary)] font-display text-lg">用數據幫你做決定</p>
                   </div>
                 </div>
 
                 {/* LINE Contact */}
                 <div className="bg-nika-bg-secondary rounded-2xl border border-white/[0.06] p-6">
-                  <p className="text-sm text-nika-text-secondary mb-4">或直接加 LINE 聊聊</p>
+                  <p className="text-sm text-nika-text-secondary mb-4">想直接聊？加 LINE 最快</p>
                   <a
                     href={LINE_URL}
                     target="_blank"
@@ -286,7 +286,7 @@ export default function Contact() {
                     style={{ background: '#06C755' }}
                   >
                     <MessageCircle size={18} strokeWidth={1.5} />
-                    加入 LINE
+                    加 LINE 聊聊
                   </a>
                 </div>
 
@@ -297,8 +297,8 @@ export default function Contact() {
                     <h3 className="text-base font-medium">回覆時間</h3>
                   </div>
                   <ul className="space-y-2">
-                    <li className="text-sm text-nika-text-secondary">表單：48 小時內</li>
-                    <li className="text-sm text-nika-text-secondary">LINE：營業時間內即時回覆</li>
+                    <li className="text-sm text-nika-text-secondary">填表單：48 小時內回覆</li>
+                    <li className="text-sm text-nika-text-secondary">LINE：上班時間即時回</li>
                   </ul>
                 </div>
 
@@ -306,7 +306,7 @@ export default function Contact() {
                 <div className="bg-nika-bg-secondary rounded-2xl border border-white/[0.06] p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <FileBarChart size={20} strokeWidth={1.5} className="text-nika-accent" />
-                    <h3 className="text-base font-medium">免費評估報告包含</h3>
+                    <h3 className="text-base font-medium">免費報告會告訴你什麼</h3>
                   </div>
                   <ul className="space-y-3">
                     {reportIncludes.map((item) => (

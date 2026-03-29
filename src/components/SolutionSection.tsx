@@ -7,7 +7,7 @@ const layers = [
     number: '01',
     icon: FileText,
     title: '內容引擎',
-    description: 'AI 研究你的產業關鍵字 → 自動撰寫 SEO 文章 → 自動發佈到你的網站。每月穩定產出，不需要你動手。',
+    description: 'AI 自動研究你的客人都在 Google 搜什麼，然後幫你寫文章、自動上架到網站。你什麼都不用做，每個月穩定有新內容幫你搶排名。',
     image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80',
     imageAlt: '內容撰寫',
   },
@@ -15,15 +15,15 @@ const layers = [
     number: '02',
     icon: Brain,
     title: '數據大腦',
-    description: '追蹤每篇文章的排名表現 → 自動分析哪些有效、哪些要調整 → 下個月的策略自動優化。越做越準，不是做完就丟。',
+    description: '系統每天盯著你的排名，哪篇文章表現好、哪個關鍵字還有機會，自動幫你調整下個月的策略。越跑越聰明，不是做完就擺著。',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
     imageAlt: '數據分析',
   },
   {
     number: '03',
     icon: Radio,
-    title: '社群觸角',
-    description: '監控 PTT、Dcard、Facebook、YouTube、Threads——有人提到你的品牌，第一時間通知你。主動經營口碑，讓網路上都在說你好。',
+    title: '社群雷達',
+    description: 'PTT 有人推你、Dcard 有人問、Facebook 有人罵——系統即時通知你。再幫你規劃怎麼經營網路口碑，讓好評越來越多。',
     image: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=600&q=80',
     imageAlt: '社群媒體',
   },
@@ -43,7 +43,7 @@ export default function SolutionSection() {
             THE SOLUTION
           </span>
           <h2 data-animate data-delay="1">
-            NikaTech 自動化引擎，三層架構
+            我們幫你裝上三套引擎
           </h2>
         </div>
 
@@ -114,7 +114,7 @@ export default function SolutionSection() {
             className="inline-flex items-center gap-1 text-sm no-underline transition-colors duration-300"
             style={{ color: '#E8944C', fontFamily: 'var(--font-body)' }}
           >
-            看完整服務內容 →
+            看我們怎麼做到的 →
           </Link>
         </motion.div>
       </div>

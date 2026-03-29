@@ -58,7 +58,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-text-secondary text-lg max-w-2xl mx-auto mt-6"
             >
-              NikaTech 不是一間大公司。但我們的系統，能做到一整個行銷部門的事。
+              我們不是什麼大公司。NikaTech 就兩個人，但我們做的系統，能幫你省下一整個行銷部門的工作量。
             </motion.p>
 
             {/* Hero image */}
@@ -95,7 +95,7 @@ export default function About() {
                 </span>
                 <h3 className="font-display text-2xl text-text-primary mb-4">均谷</h3>
                 <p className="text-text-secondary leading-relaxed">
-                  十年產業策略經驗，聊過上百個老闆。負責搞清楚你的產業——你的客人是誰、在哪裡、在找什麼。每個月跟你對目標、調策略。
+                  跑了十年的產業策略，跟上百個老闆聊過天。他負責搞懂你的生意——你的客人是誰、他們在找什麼、怎麼讓他們找到你。每個月跟你對目標、調方向，確保錢花在對的地方。
                 </p>
               </motion.div>
 
@@ -115,7 +115,7 @@ export default function About() {
                 </span>
                 <h3 className="font-display text-2xl text-text-primary mb-4">Aaron</h3>
                 <p className="text-text-secondary leading-relaxed">
-                  工程師背景，物流業出身。負責把策略變成系統——關鍵字研究、文章生成、自動發佈、數據追蹤，全部自動化。重複的事情，就該讓機器做。
+                  工程師出身，之前在物流業打滾。他負責把策略變成會自己跑的系統——AI 自動研究關鍵字、自動寫文章、自動發佈、自動追蹤排名。能讓機器做的事，就不該浪費人去做。
                 </p>
               </motion.div>
 
@@ -155,8 +155,8 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-4 text-text-secondary max-w-3xl"
             >
-              <p>Nika 是《海賊王》裡的太陽神，代表解放。</p>
-              <p>我們想做的事很簡單：讓你不用再一個人扛所有行銷的事。</p>
+              <p>Nika 是《航海王》裡的太陽神，象徵解放。</p>
+              <p>我們想做的事很簡單：把你從行銷雜事裡解放出來，讓你專心做好自己的生意。</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -205,17 +205,17 @@ export default function About() {
                 {
                   num: '01',
                   title: '先評估，再合作',
-                  desc: '不盲目簽約。先看報告、看數據，確定有機會再開始。',
+                  desc: '我們不會第一天就叫你簽約付錢。先做報告、看數據，確定有機會才開始。沒機會就老實說，不浪費你的時間。',
                 },
                 {
                   num: '02',
                   title: '每月對齊目標',
-                  desc: '不是做完就消失。每月看成效、調策略，確保方向正確。',
+                  desc: '不是做完就消失的那種。每個月坐下來看成效、聊方向，有問題 LINE 上隨時問，當天回。',
                 },
                 {
                   num: '03',
                   title: '不綁約',
-                  desc: '每月看成效決定。做得好你自然會續，做不好不該綁住你。',
+                  desc: '按月付費，覺得沒用隨時停。我們對自己做的東西有信心，做得好你不會想走。',
                 },
               ].map((p, i) => (
                 <motion.div
@@ -249,7 +249,7 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="font-display text-2xl text-text-primary mb-4"
             >
-              想聊聊？
+              有興趣？聊聊不用錢。
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 24 }}
@@ -258,7 +258,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-text-secondary mb-10"
             >
-              免費評估你的網站，看看我們能幫上什麼。
+              免費幫你做一份網站健檢報告，看看有沒有我們能幫上忙的地方。
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 24 }}

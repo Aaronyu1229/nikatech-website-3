@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const headlineWords = ['一套系統，', '抵一個行銷', '部門。'];
+const headlineWords = ['你顧好生意，', '客人讓系統', '幫你找。'];
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -136,7 +136,7 @@ export default function HeroSection() {
           className="mt-8 mx-auto leading-relaxed max-w-2xl"
           style={{ color: '#9B978E', fontSize: '1.125rem' }}
         >
-          關鍵字研究、文章撰寫、自動發佈、排名追蹤、社群監控——全部自動化。每月幫你省下一個人力，讓客人主動搜到你。
+          從關鍵字研究到文章上架，全部 AI 自動搞定。不用請人、不用學技術，每個月穩穩幫你從 Google 帶客人進來。
         </p>
 
         <div data-animate data-delay="3" className="flex flex-wrap justify-center gap-4 mt-10 relative">
@@ -146,7 +146,7 @@ export default function HeroSection() {
             className="btn-shimmer group inline-flex items-center gap-2 px-8 py-[0.875rem] rounded text-[0.9375rem] font-medium tracking-[0.03em] no-underline transition-all duration-300 hover:-translate-y-px hover:shadow-lg relative z-10"
             style={{ fontFamily: 'var(--font-body)', background: '#E8944C', color: '#0C0C0E', boxShadow: '0 4px 20px rgba(232,148,76,0.25)' }}
           >
-            免費評估你的網站
+            免費幫你的網站做健檢
             <ArrowRight size={16} className="inline-block transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <Link
@@ -156,7 +156,7 @@ export default function HeroSection() {
             onMouseEnter={(e) => (e.currentTarget.style.background = '#242428')}
             onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
           >
-            看方案與報價
+            先看看方案內容
           </Link>
         </div>
 
@@ -166,7 +166,7 @@ export default function HeroSection() {
           className="mt-6 text-xs"
           style={{ color: '#5E5B55', fontFamily: 'var(--font-mono)' }}
         >
-          已為 XX 個品牌建立自動化流量系統
+          台灣已有超過 10 組品牌正在使用
         </p>
 
         {/* Hero Visual */}

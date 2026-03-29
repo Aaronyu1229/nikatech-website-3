@@ -4,33 +4,33 @@ import { ClipboardCheck, BarChart3, Target, Cpu, Sparkles, ShieldCheck } from 'l
 const cards = [
   {
     icon: ClipboardCheck,
-    title: '先評估，再合作',
-    description: '免費幫你做網站健檢報告，有數據基礎再決定。不盲目簽約。',
+    title: '合作前，先給你一份免費報告',
+    description: '不會叫你先簽約。我們先幫你做網站健檢，用數據告訴你值不值得做，再決定要不要開始。',
   },
   {
     icon: BarChart3,
-    title: '每月看得到成效',
-    description: '每月一份白話報表——來了幾個人、排名進步多少、系統幫你省了幾小時。',
+    title: '每個月都看得到數字',
+    description: '月報不是那種看不懂的工程師報表。白話告訴你：多少人來、排名進步幾名、幫你省了多少時間。',
   },
   {
     icon: Target,
-    title: '每月校準目標',
-    description: '不是做完就消失。每月跟你對一次目標，調整策略，確保方向正確。',
+    title: '每個月坐下來對目標',
+    description: '不會簽完約就消失。每個月固定跟你開會，看上個月成效、討論下個月方向。有問題隨時 LINE。',
   },
   {
     icon: Cpu,
-    title: 'AI 自動化，省一個人力',
-    description: '關鍵字研究、寫文章、發佈、追蹤——全部自動跑。你省下的是一個行銷人的時間和薪水。',
+    title: '省下一個人的薪水',
+    description: '請一個行銷至少 4、5 萬，還要教、還要管。我們的系統 24 小時自動跑，關鍵字研究、寫文章、發佈、追蹤全包。',
   },
   {
     icon: Sparkles,
-    title: 'SEO + GEO 雙引擎',
-    description: '不只讓 Google 搜到你，也讓 ChatGPT、Perplexity 等 AI 搜尋引擎推薦你。',
+    title: 'Google 和 AI 搜尋通吃',
+    description: '不只做傳統 SEO。ChatGPT、Perplexity 這些 AI 搜尋越來越多人用，我們也幫你佈局，兩邊的流量都吃到。',
   },
   {
     icon: ShieldCheck,
-    title: '不綁約',
-    description: '每月看成效決定。做得好你自然會續，做不好不該綁住你。',
+    title: '不綁約，隨時可以停',
+    description: '按月計費，覺得沒效果隨時喊停。我們對自己的東西有信心——做得好，你不會想走。',
   },
 ];
 
@@ -51,7 +51,7 @@ export default function WhyUsSection() {
             WHY US
           </span>
           <h2 data-animate data-delay="1">
-            不是又一間 SEO 公司
+            跟一般 SEO 公司哪裡不一樣？
           </h2>
         </div>
 

@@ -4,23 +4,23 @@ import { motion } from 'framer-motion';
 const steps = [
   {
     number: '01',
-    title: '免費評估',
-    description: '填寫表單，我們幫你做一份網站健檢報告，告訴你現狀和機會。',
+    title: '填表申請',
+    description: '花 2 分鐘填個表，我們幫你做一份網站健檢報告。免費的，不用先付錢。',
   },
   {
     number: '02',
-    title: '選擇方案',
-    description: '根據報告結果，選擇適合你的方案。基礎版、進階版、全配版。',
+    title: '看報告選方案',
+    description: '報告出來後，我們跟你說明現狀跟機會，你再選適合的方案。沒有業務話術，看數據說話。',
   },
   {
     number: '03',
-    title: '兩週上線',
-    description: '確認合作後，14 天內系統開始跑。第一批文章自動發佈。',
+    title: '兩週內上線',
+    description: '選好方案，兩個禮拜內系統就開始跑。第一批文章自動產出、自動上架。',
   },
   {
     number: '04',
-    title: '每月校準',
-    description: '月報告 + 目標校準會議。看數據、調策略、持續優化。',
+    title: '每月對帳看成效',
+    description: '每個月給你一份報告，坐下來聊一次。哪裡做得好、哪裡要調整，用數字跟你說。',
   },
 ];
 
@@ -41,7 +41,7 @@ export default function ProcessSection() {
             HOW IT WORKS
           </span>
           <h2 data-animate data-delay="1">
-            四步開始
+            開始合作只要四步
           </h2>
         </div>
 
@@ -120,7 +120,7 @@ export default function ProcessSection() {
           className="text-center"
         >
           <h2 className="mb-8" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
-            不確定適不適合？先做個免費測試。
+            還不確定？花 30 秒做個小測試
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
@@ -128,7 +128,7 @@ export default function ProcessSection() {
               className="btn-shimmer group inline-flex items-center gap-2 px-8 py-[0.875rem] rounded text-[0.9375rem] font-medium tracking-[0.03em] no-underline transition-all duration-300 hover:-translate-y-px hover:shadow-lg"
               style={{ fontFamily: 'var(--font-body)', background: '#E8944C', color: '#0C0C0E', boxShadow: '0 4px 20px rgba(232,148,76,0.25)' }}
             >
-              30 秒行業測試
+              免費行業測試
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>
             <Link
@@ -138,7 +138,7 @@ export default function ProcessSection() {
               onMouseEnter={(e) => (e.currentTarget.style.background = '#242428')}
               onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
             >
-              直接聯繫我們
+              或直接 LINE 我們聊聊
             </Link>
           </div>
         </motion.div>

@@ -28,7 +28,7 @@ export default function FooterSection() {
               <span className="font-display text-xl" style={{ color: '#F2EFE8' }}>Tech</span>
             </div>
             <p className="text-sm leading-relaxed" style={{ color: '#5E5B55' }}>
-              讓你不用再一個人扛所有行銷的事。
+              讓你不用再一個人扛行銷的事。
             </p>
           </div>
 

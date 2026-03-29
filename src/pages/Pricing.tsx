@@ -37,7 +37,7 @@ const plans: PricingPlan[] = [
   {
     label: '內容引擎',
     title: '基礎版',
-    tagline: '讓你的網站開始被 Google 看到',
+    tagline: '先讓 Google 認識你',
     price: 'NT$ XXX,XXX / 月',
     features: [
       '關鍵字研究與規劃',
@@ -47,42 +47,42 @@ const plans: PricingPlan[] = [
       '每月成效報表',
       '每月目標校準',
     ],
-    suitableFor: '適合：剛開始想做 SEO 的品牌',
+    suitableFor: '適合：還沒開始做 SEO，想先試水溫的品牌',
     ctaStyle: 'outline',
   },
   {
     label: '內容引擎 + 數據大腦',
     title: '進階版',
-    tagline: '不只被搜到，還越做越好',
+    tagline: '被搜到只是第一步，接下來越做越猛',
     price: 'NT$ XXX,XXX / 月',
     features: [
       '基礎版全部功能',
       '圖片自動生成',
       '數據分析與自動優化',
-      '文章品質升級（A 級 + S 級）',
-      '完整 E-E-A-T 信號注入',
+      '文章品質拉到 A 級 + S 級',
+      'Google 信任度全面提升',
       'GEO 生成式搜尋優化',
       '每月 12 篇文章',
     ],
-    suitableFor: '適合：想認真提升流量的成長型品牌',
+    suitableFor: '適合：認真想靠網路帶客人的成長型品牌',
     recommended: true,
     ctaStyle: 'solid',
   },
   {
-    label: '內容引擎 + 數據大腦 + 社群觸角',
+    label: '內容引擎 + 數據大腦 + 社群雷達',
     title: '全配版',
-    tagline: '你的線上聲量，全部交給我們',
+    tagline: '線上的事，全部丟給我們',
     price: 'NT$ XXX,XXX / 月',
     features: [
       '進階版全部功能',
       '五大平台社群媒體監控',
-      '社群口碑策略與執行',
+      '網路口碑策略 + 執行',
       'S 級文章佔比最高',
-      '品牌提及即時通知',
-      '完整社群儀表板',
+      '有人講到你，LINE 馬上通知',
+      '社群聲量即時看板',
       '每月 20 篇文章',
     ],
-    suitableFor: '適合：要全面掌控線上市場的品牌',
+    suitableFor: '適合：要全面佔領網路市場的品牌',
     ctaStyle: 'outline',
   },
 ];
@@ -91,11 +91,11 @@ const commonFeatures = [
   { icon: CalendarCheck, text: '不綁約，按月計費' },
   { icon: FileBarChart, text: '每月成效報表' },
   { icon: Users, text: '每月目標校準會議' },
-  { icon: Rocket, text: '14 天內系統上線' },
-  { icon: MessageCircle, text: '專屬 LINE 群組即時溝通' },
+  { icon: Rocket, text: '兩週內系統開始跑' },
+  { icon: MessageCircle, text: '專屬 LINE 群，有問題隨時問' },
 ];
 
-const addonInline = ['設計 + 開發', 'SEO 架構', 'Schema Markup', '系統串接'];
+const addonInline = ['設計 + 開發', 'SEO 架構', 'Schema Markup', '自動發佈系統串接'];
 
 export default function Pricing() {
   useEffect(() => {
@@ -135,7 +135,7 @@ export default function Pricing() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-4xl md:text-5xl lg:text-6xl mt-6"
             >
-              選一個適合你的方案
+              找一個適合你的方案
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 24 }}
@@ -143,7 +143,7 @@ export default function Pricing() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-nika-text-secondary text-lg max-w-2xl mx-auto mt-6"
             >
-              所有方案都包含每月成效報表和目標校準會議。不綁約，按月計費。
+              每個方案都有月報和目標校準會議。不綁約、按月算，覺得不行隨時喊停。
             </motion.p>
           </div>
         </section>
@@ -236,7 +236,7 @@ export default function Pricing() {
                   <h3 className="text-lg font-medium">品牌官網建置</h3>
                 </div>
                 <p className="text-nika-text-secondary text-sm mb-4">
-                  SEO 友善的品牌官網，一次性建置費用
+                  幫你從頭做一個 SEO 友善的品牌官網
                 </p>
                 <div className="flex flex-wrap gap-x-5 gap-y-2">
                   {addonInline.map((f) => (
@@ -272,7 +272,7 @@ export default function Pricing() {
         <section className="pb-[var(--section-gap)]">
           <div className="max-w-[var(--container-max)] mx-auto px-[var(--container-padding)] text-center">
             <h2 data-animate className="text-2xl md:text-3xl mb-8">
-              免費評估，找到最適合你的方案
+              不知道選哪個？先做個免費評估再說。
             </h2>
             <div data-animate data-delay="1">
               <Link
@@ -280,7 +280,7 @@ export default function Pricing() {
                 className="inline-block px-8 py-4 rounded-lg font-semibold text-sm no-underline transition-all duration-300 btn-shimmer"
                 style={{ background: 'var(--accent)', color: 'var(--bg-primary)' }}
               >
-                填寫評估表單
+                申請免費網站健檢
               </Link>
             </div>
           </div>

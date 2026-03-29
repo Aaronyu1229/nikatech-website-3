@@ -113,7 +113,7 @@ export default function Quiz() {
                 transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <h2 className="font-display text-2xl md:text-3xl text-text-primary text-center mb-8">
-                  你是做什麼的？
+                  你們是做什麼的？
                 </h2>
                 <div className="grid grid-cols-2 gap-4">
                   {industryOptions.map((opt) => (
@@ -180,9 +180,9 @@ export default function Quiz() {
               >
                 <div className="text-center mb-8">
                   <h2 className="font-display text-2xl md:text-3xl text-text-primary">
-                    你現在最頭痛的是什麼？
+                    現在最讓你頭痛的是什麼？
                   </h2>
-                  <p className="text-text-tertiary text-sm mt-3">可以選多個</p>
+                  <p className="text-text-tertiary text-sm mt-3">可以選好幾個，不用客氣</p>
                 </div>
 
                 <div className="flex flex-col gap-3">
@@ -250,7 +250,7 @@ export default function Quiz() {
                 transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <h2 className="font-display text-2xl md:text-3xl text-text-primary text-center mb-8">
-                  你希望多快看到改變？
+                  你希望多快看到效果？
                 </h2>
 
                 <div className="flex flex-col gap-3">
@@ -289,7 +289,7 @@ export default function Quiz() {
                 transition={{ duration: 0.5 }}
               >
                 <h2 className="font-display text-2xl md:text-3xl text-text-primary text-center mb-10">
-                  根據你的狀況，我們建議：
+                  根據你的情況，我們這樣建議：
                 </h2>
 
                 {/* Recommended Plan Card */}
@@ -299,7 +299,7 @@ export default function Quiz() {
                 >
                   <div className="mb-6">
                     <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-                      推薦方案
+                      最適合你的方案
                     </span>
                     <h3 className="font-display text-2xl text-accent mt-2">
                       {recommendation.tierName}
@@ -334,12 +334,12 @@ export default function Quiz() {
                 <div className="bg-bg-tertiary rounded-xl p-6 mb-8">
                   <div className="grid grid-cols-2 gap-6">
                     <div>
-                      <p className="text-text-secondary text-xs font-mono mb-1">3-6 個月後</p>
-                      <p className="text-accent text-xl font-display">自然流量增加 200-500%</p>
+                      <p className="text-text-secondary text-xs font-mono mb-1">3-6 個月之後</p>
+                      <p className="text-accent text-xl font-display">網站自然流量成長 2-5 倍</p>
                     </div>
                     <div>
-                      <p className="text-text-secondary text-xs font-mono mb-1">每月</p>
-                      <p className="text-accent text-xl font-display">省下約 40 小時人力</p>
+                      <p className="text-text-secondary text-xs font-mono mb-1">每個月</p>
+                      <p className="text-accent text-xl font-display">幫你省下大約 40 小時的工作</p>
                     </div>
                   </div>
                 </div>
@@ -352,7 +352,7 @@ export default function Quiz() {
                       className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-medium no-underline transition-all duration-300 hover:-translate-y-px border border-white/[0.06] text-text-primary"
                       style={{ fontFamily: 'var(--font-body)' }}
                     >
-                      看方案詳細內容
+                      看方案細節和價格
                     </Link>
                     <Link
                       to="/contact"
@@ -363,7 +363,7 @@ export default function Quiz() {
                         fontFamily: 'var(--font-body)',
                       }}
                     >
-                      免費評估我的網站
+                      免費幫我的網站做健檢
                     </Link>
                   </div>
                   <a
@@ -379,7 +379,7 @@ export default function Quiz() {
                     }}
                   >
                     <MessageCircle size={18} strokeWidth={1.5} />
-                    加 LINE 免費評估，我們算給你聽
+                    加 LINE 聊，我們幫你算一下
                   </a>
                 </div>
 
@@ -391,7 +391,7 @@ export default function Quiz() {
                     style={{ background: 'none', border: 'none', fontFamily: 'var(--font-body)' }}
                   >
                     <RotateCcw size={14} />
-                    重新測試
+                    重新做一次
                   </button>
                 </div>
               </motion.div>
