@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+
+const headlineWords = ['一套系統，', '抵一個行銷', '部門。'];
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -112,8 +115,19 @@ export default function HeroSection() {
           AI-POWERED GROWTH ENGINE
         </span>
 
-        <h1 data-animate data-delay="1" className="font-display mx-auto" style={{ maxWidth: '18ch' }}>
-          一套系統，抵一個行銷部門。
+        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight mx-auto" style={{ maxWidth: '18ch' }}>
+          {headlineWords.map((word, i) => (
+            <motion.span
+              key={i}
+              className={i === 1 ? 'text-gradient-animated' : 'text-text-primary'}
+              initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.8, delay: 0.3 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              style={{ display: 'inline-block' }}
+            >
+              {word}
+            </motion.span>
+          ))}
         </h1>
 
         <p
@@ -125,10 +139,11 @@ export default function HeroSection() {
           關鍵字研究、文章撰寫、自動發佈、排名追蹤、社群監控——全部自動化。每月幫你省下一個人力，讓客人主動搜到你。
         </p>
 
-        <div data-animate data-delay="3" className="flex flex-wrap justify-center gap-4 mt-10">
+        <div data-animate data-delay="3" className="flex flex-wrap justify-center gap-4 mt-10 relative">
+          <div className="absolute -inset-4 bg-accent/10 rounded-full blur-2xl animate-pulse" />
           <Link
             to="/contact"
-            className="btn-shimmer group inline-flex items-center gap-2 px-8 py-[0.875rem] rounded text-[0.9375rem] font-medium tracking-[0.03em] no-underline transition-all duration-300 hover:-translate-y-px hover:shadow-lg"
+            className="btn-shimmer group inline-flex items-center gap-2 px-8 py-[0.875rem] rounded text-[0.9375rem] font-medium tracking-[0.03em] no-underline transition-all duration-300 hover:-translate-y-px hover:shadow-lg relative z-10"
             style={{ fontFamily: 'var(--font-body)', background: '#E8944C', color: '#0C0C0E', boxShadow: '0 4px 20px rgba(232,148,76,0.25)' }}
           >
             免費評估你的網站
@@ -136,7 +151,7 @@ export default function HeroSection() {
           </Link>
           <Link
             to="/pricing"
-            className="inline-flex items-center gap-2 px-8 py-[0.875rem] rounded text-[0.9375rem] font-medium no-underline transition-all duration-300 hover:-translate-y-px"
+            className="inline-flex items-center gap-2 px-8 py-[0.875rem] rounded text-[0.9375rem] font-medium no-underline transition-all duration-300 hover:-translate-y-px relative z-10"
             style={{ fontFamily: 'var(--font-body)', color: '#F2EFE8', border: '1px solid rgba(242,239,232,0.06)', background: 'transparent' }}
             onMouseEnter={(e) => (e.currentTarget.style.background = '#242428')}
             onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
@@ -153,6 +168,24 @@ export default function HeroSection() {
         >
           已為 XX 個品牌建立自動化流量系統
         </p>
+
+        {/* Hero Visual */}
+        <div className="relative mt-16 md:mt-24 max-w-4xl mx-auto" data-animate data-delay="5">
+          <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] shadow-2xl shadow-accent/5">
+            {/* Gradient overlay on top */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0E] via-transparent to-transparent z-10" />
+            {/* Reflection gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(232,148,76,0.1)] via-transparent to-transparent z-10" />
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+              alt="NikaTech 數據分析儀表板"
+              className="w-full h-auto opacity-80"
+              loading="lazy"
+            />
+          </div>
+          {/* Glow effect under image */}
+          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-[rgba(232,148,76,0.2)] blur-3xl rounded-full" />
+        </div>
       </div>
 
       {/* Bottom fade */}

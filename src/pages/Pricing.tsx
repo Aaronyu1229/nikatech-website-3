@@ -167,9 +167,16 @@ export default function Pricing() {
                   }`}
                 >
                   {plan.recommended && (
-                    <span className="absolute -top-3 right-6 bg-nika-accent text-nika-bg font-mono text-xs px-3 py-1 rounded-full font-semibold">
-                      推薦
-                    </span>
+                    <>
+                      <div className="absolute -inset-1 bg-gradient-to-b from-accent/10 via-transparent to-transparent rounded-2xl blur-xl -z-10" />
+                      <motion.span
+                        animate={{ y: [0, -3, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                        className="absolute -top-3 right-6 bg-nika-accent text-nika-bg font-mono text-xs px-3 py-1 rounded-full font-semibold"
+                      >
+                        推薦
+                      </motion.span>
+                    </>
                   )}
 
                   <span className="font-mono text-xs text-nika-text-tertiary uppercase tracking-wider">

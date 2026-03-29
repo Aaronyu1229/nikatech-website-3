@@ -36,7 +36,10 @@ const cards = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-[clamp(6rem,12vh,10rem)] relative" style={{ background: '#0C0C0E' }}>
+    <section className="py-[clamp(6rem,12vh,10rem)] relative overflow-hidden" style={{ background: '#0C0C0E' }}>
+      {/* Background decoration */}
+      <div className="absolute top-1/2 -right-32 w-64 h-64 bg-[rgba(232,148,76,0.05)] rounded-full blur-3xl" />
+      <div className="absolute bottom-0 -left-32 w-48 h-48 bg-[rgba(232,148,76,0.03)] rounded-full blur-3xl" />
       <div className="max-w-[1200px] mx-auto px-[clamp(1.5rem,4vw,4rem)]">
         {/* Header */}
         <div className="mb-16 text-center">
@@ -63,7 +66,7 @@ export default function WhyUsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="p-6 rounded-xl hover-lift"
+                className="card-tilt p-6 rounded-xl hover:border-accent/20 transition-all duration-500 group"
                 style={{
                   background: '#141416',
                   border: '1px solid rgba(242,239,232,0.06)',
@@ -81,6 +84,7 @@ export default function WhyUsSection() {
                 <p className="text-sm leading-relaxed" style={{ color: '#9B978E' }}>
                   {card.description}
                 </p>
+                <div className="mt-4 h-0.5 bg-accent/0 group-hover:bg-accent/40 transition-all duration-500 rounded-full transform scale-x-0 group-hover:scale-x-100 origin-left" />
               </motion.div>
             );
           })}

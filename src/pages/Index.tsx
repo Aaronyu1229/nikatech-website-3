@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import PainSection from '@/components/PainSection';
@@ -8,6 +8,18 @@ import ProcessSection from '@/components/ProcessSection';
 import FooterSection from '@/components/FooterSection';
 
 const Index = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -26,6 +38,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-bg-primary text-text-primary">
+      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
       <Navbar />
       <HeroSection />
       <PainSection />

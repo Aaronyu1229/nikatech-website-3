@@ -10,7 +10,10 @@ const pains = [
 
 export default function PainSection() {
   return (
-    <section className="py-[clamp(6rem,12vh,10rem)] relative" style={{ background: '#0C0C0E' }}>
+    <section className="py-[clamp(6rem,12vh,10rem)] relative overflow-hidden" style={{ background: '#0C0C0E' }}>
+      {/* Background decoration */}
+      <div className="absolute top-1/2 -right-32 w-64 h-64 bg-[rgba(232,148,76,0.05)] rounded-full blur-3xl" />
+      <div className="absolute bottom-0 -left-32 w-48 h-48 bg-[rgba(232,148,76,0.03)] rounded-full blur-3xl" />
       <div className="max-w-[1200px] mx-auto px-[clamp(1.5rem,4vw,4rem)] relative">
         {/* Header */}
         <div className="mb-16">
@@ -31,15 +34,20 @@ export default function PainSection() {
           {pains.map((pain, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="pl-6 py-4"
-              style={{
-                borderLeft: '2px solid #E8944C',
-              }}
+              transition={{ duration: 0.7, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+              className="relative pl-8 py-4"
             >
+              {/* Animated border line */}
+              <motion.div
+                className="absolute left-0 top-0 w-0.5 bg-accent"
+                initial={{ height: 0 }}
+                whileInView={{ height: '100%' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.12 + 0.2, ease: [0.16, 1, 0.3, 1] }}
+              />
               <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#F2EFE8' }}>
                 「{pain}」
               </p>

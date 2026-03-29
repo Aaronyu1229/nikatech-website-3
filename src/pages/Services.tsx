@@ -44,11 +44,15 @@ function ServiceSection({
   heading,
   intro,
   features,
+  image,
+  imageLeft = true,
 }: {
   tag: string;
   heading: string;
   intro: string;
   features: FeatureItem[];
+  image?: string;
+  imageLeft?: boolean;
 }) {
   return (
     <section className="py-[var(--section-gap)]">
@@ -64,22 +68,32 @@ function ServiceSection({
         <p data-animate data-delay="2" className="text-nika-text-secondary text-lg max-w-2xl mb-12">
           {intro}
         </p>
-        <div className="grid md:grid-cols-2 gap-[var(--grid-gap)]">
-          {features.map((item, i) => (
-            <motion.div
-              key={item.title}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-40px' }}
-              variants={fadeUp}
-              className="bg-nika-bg-secondary rounded-xl border border-white/[0.06] p-6 hover-lift"
-            >
-              <item.icon size={24} strokeWidth={1.5} className="text-nika-accent mb-4" />
-              <h3 className="text-nika-text font-body text-lg font-medium mb-2">{item.title}</h3>
-              <p className="text-nika-text-secondary text-sm leading-relaxed">{item.desc}</p>
-            </motion.div>
-          ))}
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          {/* Image side */}
+          {image && (
+            <div className={`relative rounded-2xl overflow-hidden border border-white/[0.06] ${imageLeft ? 'order-2 md:order-1' : 'order-2'}`}>
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/80 to-transparent z-10" />
+              <img src={image} alt="" className="w-full h-64 md:h-full object-cover opacity-70" loading="lazy" />
+            </div>
+          )}
+          {/* Feature cards side */}
+          <div className={`grid grid-cols-1 sm:grid-cols-2 gap-[var(--grid-gap)] ${imageLeft ? 'order-1 md:order-2' : 'order-1'}`}>
+            {features.map((item, i) => (
+              <motion.div
+                key={item.title}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-40px' }}
+                variants={fadeUp}
+                className="bg-nika-bg-secondary rounded-xl border border-white/[0.06] p-6 hover-lift"
+              >
+                <item.icon size={24} strokeWidth={1.5} className="text-nika-accent mb-4" />
+                <h3 className="text-nika-text font-body text-lg font-medium mb-2">{item.title}</h3>
+                <p className="text-nika-text-secondary text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -179,6 +193,8 @@ export default function Services() {
           heading="讓客人在 Google 上搜到你"
           intro="大部分中小企業的網站，Google 上根本找不到。不是你的產品不好，是你的網站沒有告訴 Google「我在這裡」。"
           features={seoFeatures}
+          image="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80"
+          imageLeft={true}
         />
 
         <hr className="section-divider" />
@@ -189,6 +205,8 @@ export default function Services() {
           heading="讓 AI 搜尋引擎也推薦你"
           intro="2026 年，越來越多人不是 Google 搜尋，而是直接問 ChatGPT、Perplexity、Google AI Overview。如果你的品牌沒有被這些 AI 引擎收錄，你會失去一整塊新的流量來源。"
           features={geoFeatures}
+          image="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
+          imageLeft={false}
         />
 
         <hr className="section-divider" />
@@ -199,6 +217,8 @@ export default function Services() {
           heading="系統會自己學，越做越好"
           intro="不是寫完文章就結束。系統每天追蹤排名、分析數據，自動判斷哪篇要補強、哪個關鍵字要加碼、哪個方向要調整。"
           features={dataFeatures}
+          image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+          imageLeft={true}
         />
 
         <hr className="section-divider" />
@@ -209,6 +229,8 @@ export default function Services() {
           heading="網路上說你什麼，你第一個知道"
           intro="PTT 有人推你的產品，你知道嗎？Dcard 有人抱怨你的服務，你知道嗎？"
           features={socialFeatures}
+          image="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80"
+          imageLeft={false}
         />
 
         <hr className="section-divider" />

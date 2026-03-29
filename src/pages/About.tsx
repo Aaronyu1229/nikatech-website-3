@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Compass, Terminal, MessageCircle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import FooterSection from '@/components/FooterSection';
@@ -31,8 +32,10 @@ export default function About() {
         {/* Hero */}
         <section className="pt-32 pb-16 text-center">
           <div className="max-w-[var(--container-max)] mx-auto px-[var(--container-padding)]">
-            <span
-              data-animate
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
               className="inline-block px-3 py-1 rounded text-xs uppercase tracking-[0.2em] mb-6 font-mono text-accent"
               style={{
                 background: 'rgba(232,148,76,0.1)',
@@ -40,21 +43,34 @@ export default function About() {
               }}
             >
               ABOUT
-            </span>
-            <h1
-              data-animate
-              data-delay="1"
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-4xl md:text-5xl text-text-primary"
             >
               兩個人，一套系統。
-            </h1>
-            <p
-              data-animate
-              data-delay="2"
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="text-text-secondary text-lg max-w-2xl mx-auto mt-6"
             >
               NikaTech 不是一間大公司。但我們的系統，能做到一整個行銷部門的事。
-            </p>
+            </motion.p>
+
+            {/* Hero image */}
+            <div className="relative mt-12 max-w-3xl mx-auto rounded-2xl overflow-hidden border border-white/[0.06]">
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/50 to-transparent z-10" />
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80"
+                alt="NikaTech team"
+                className="w-full h-64 md:h-80 object-cover opacity-50"
+                loading="lazy"
+              />
+            </div>
           </div>
         </section>
 
@@ -64,11 +80,16 @@ export default function About() {
             <div className="grid md:grid-cols-2 gap-[var(--grid-gap)]">
 
               {/* Card 1 - 均谷 */}
-              <div
-                data-animate
-                className="bg-bg-secondary rounded-2xl border border-white/[0.06] p-8 md:p-10"
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="card-tilt bg-bg-secondary rounded-2xl border border-white/[0.06] p-8 md:p-10 hover:border-accent/20 transition-colors duration-500"
               >
-                <Compass size={32} className="text-accent mb-6" strokeWidth={1.5} />
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[rgba(232,148,76,0.3)] to-[rgba(232,148,76,0.05)] flex items-center justify-center mb-6 border border-[rgba(232,148,76,0.2)]">
+                  <Compass className="w-8 h-8 text-accent" strokeWidth={1.5} />
+                </div>
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-4 block">
                   產業策略
                 </span>
@@ -76,15 +97,19 @@ export default function About() {
                 <p className="text-text-secondary leading-relaxed">
                   十年產業策略經驗，聊過上百個老闆。負責搞清楚你的產業——你的客人是誰、在哪裡、在找什麼。每個月跟你對目標、調策略。
                 </p>
-              </div>
+              </motion.div>
 
               {/* Card 2 - Aaron */}
-              <div
-                data-animate
-                data-delay="1"
-                className="bg-bg-secondary rounded-2xl border border-white/[0.06] p-8 md:p-10"
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                className="card-tilt bg-bg-secondary rounded-2xl border border-white/[0.06] p-8 md:p-10 hover:border-accent/20 transition-colors duration-500"
               >
-                <Terminal size={32} className="text-accent mb-6" strokeWidth={1.5} />
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[rgba(232,148,76,0.3)] to-[rgba(232,148,76,0.05)] flex items-center justify-center mb-6 border border-[rgba(232,148,76,0.2)]">
+                  <Terminal className="w-8 h-8 text-accent" strokeWidth={1.5} />
+                </div>
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-4 block">
                   AI 工程
                 </span>
@@ -92,7 +117,7 @@ export default function About() {
                 <p className="text-text-secondary leading-relaxed">
                   工程師背景，物流業出身。負責把策略變成系統——關鍵字研究、文章生成、自動發佈、數據追蹤，全部自動化。重複的事情，就該讓機器做。
                 </p>
-              </div>
+              </motion.div>
 
             </div>
           </div>
@@ -101,8 +126,11 @@ export default function About() {
         {/* Brand Story */}
         <section className="py-[var(--section-gap)]">
           <div className="max-w-3xl mx-auto px-[var(--container-padding)]">
-            <span
-              data-animate
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
               className="inline-block px-3 py-1 rounded text-xs uppercase tracking-[0.2em] mb-6 font-mono text-accent"
               style={{
                 background: 'rgba(232,148,76,0.1)',
@@ -110,29 +138,50 @@ export default function About() {
               }}
             >
               ORIGIN
-            </span>
-            <h2 data-animate data-delay="1" className="font-display text-3xl text-text-primary mb-6">
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-display text-3xl text-text-primary mb-6"
+            >
               為什麼叫 NikaTech？
-            </h2>
-            <div data-animate data-delay="2" className="space-y-4 text-text-secondary max-w-3xl">
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-4 text-text-secondary max-w-3xl"
+            >
               <p>Nika 是《海賊王》裡的太陽神，代表解放。</p>
               <p>我們想做的事很簡單：讓你不用再一個人扛所有行銷的事。</p>
-            </div>
-            <div data-animate data-delay="3" className="mt-8">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-8"
+            >
               <div
                 className="h-px w-full"
                 style={{ background: 'linear-gradient(to right, #E8944C, transparent)' }}
               />
               <p className="text-right mt-3 font-mono text-text-tertiary text-sm">est. 2024</p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Principles */}
         <section className="py-[var(--section-gap)]">
           <div className="max-w-[var(--container-max)] mx-auto px-[var(--container-padding)]">
-            <span
-              data-animate
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
               className="inline-block px-3 py-1 rounded text-xs uppercase tracking-[0.2em] mb-6 font-mono text-accent"
               style={{
                 background: 'rgba(232,148,76,0.1)',
@@ -140,10 +189,16 @@ export default function About() {
               }}
             >
               PRINCIPLES
-            </span>
-            <h2 data-animate data-delay="1" className="font-display text-3xl text-text-primary mb-10">
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-display text-3xl text-text-primary mb-10"
+            >
               我們的三個原則
-            </h2>
+            </motion.h2>
 
             <div className="flex flex-col gap-4">
               {[
@@ -163,11 +218,13 @@ export default function About() {
                   desc: '每月看成效決定。做得好你自然會續，做不好不該綁住你。',
                 },
               ].map((p, i) => (
-                <div
+                <motion.div
                   key={p.num}
-                  data-animate
-                  data-delay={String(i + 1)}
-                  className="relative overflow-hidden bg-bg-secondary rounded-xl border border-white/[0.06] p-8"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  className="card-tilt relative overflow-hidden bg-bg-secondary rounded-xl border border-white/[0.06] p-8 hover:border-accent/20 transition-colors duration-500"
                 >
                   <span className="absolute right-8 top-1/2 -translate-y-1/2 text-[8rem] font-display text-white/[0.03] leading-none select-none pointer-events-none">
                     {p.num}
@@ -176,7 +233,7 @@ export default function About() {
                     <h3 className="font-display text-xl text-text-primary mb-2">{p.title}</h3>
                     <p className="text-text-secondary">{p.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -185,13 +242,31 @@ export default function About() {
         {/* CTA */}
         <section className="py-[var(--section-gap)]">
           <div className="max-w-[var(--container-max)] mx-auto px-[var(--container-padding)] text-center">
-            <h2 data-animate className="font-display text-2xl text-text-primary mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="font-display text-2xl text-text-primary mb-4"
+            >
               想聊聊？
-            </h2>
-            <p data-animate data-delay="1" className="text-text-secondary mb-10">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-text-secondary mb-10"
+            >
               免費評估你的網站，看看我們能幫上什麼。
-            </p>
-            <div data-animate data-delay="2" className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg text-sm font-medium no-underline transition-all duration-300 hover:-translate-y-px"
@@ -217,7 +292,7 @@ export default function About() {
                 <MessageCircle size={16} strokeWidth={1.5} />
                 加 LINE 聊聊
               </a>
-            </div>
+            </motion.div>
           </div>
         </section>
 

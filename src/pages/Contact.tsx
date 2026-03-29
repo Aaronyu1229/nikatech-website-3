@@ -261,6 +261,20 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="md:col-span-2 space-y-6"
               >
+                {/* Decorative image */}
+                <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-secondary)] to-transparent z-10" />
+                  <img
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+                    alt=""
+                    className="w-full h-40 object-cover opacity-50"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-4 left-4 z-20">
+                    <p className="text-[var(--text-primary)] font-display text-lg">讓數據說話</p>
+                  </div>
+                </div>
+
                 {/* LINE Contact */}
                 <div className="bg-nika-bg-secondary rounded-2xl border border-white/[0.06] p-6">
                   <p className="text-sm text-nika-text-secondary mb-4">或直接加 LINE 聊聊</p>

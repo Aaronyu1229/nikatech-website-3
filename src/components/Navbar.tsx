@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 
@@ -11,16 +11,31 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-[100] h-[72px] flex items-center"
-      style={{
-        background: 'rgba(12, 12, 14, 0.8)',
-        backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid var(--border-subtle)',
-      }}
+      className={`fixed top-0 left-0 right-0 z-[100] h-[72px] flex items-center transition-all duration-500 ${
+        scrolled
+          ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20'
+          : 'bg-transparent'
+      }`}
+      style={
+        scrolled
+          ? undefined
+          : {
+              background: 'rgba(12, 12, 14, 0.8)',
+              backdropFilter: 'blur(12px)',
+              borderBottom: '1px solid var(--border-subtle)',
+            }
+      }
     >
       <div className="w-full max-w-[1200px] mx-auto px-[clamp(1.5rem,4vw,4rem)] flex items-center justify-between">
         {/* Logo */}
@@ -43,7 +58,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               to={link.href}
-              className="text-[0.8125rem] no-underline transition-colors duration-300"
+              className="animated-underline text-[0.8125rem] no-underline transition-colors duration-300"
               style={{
                 fontFamily: 'var(--font-body)',
                 color: location.pathname === link.href ? '#E8944C' : '#9B978E',

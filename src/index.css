@@ -419,3 +419,104 @@ a.link-underline:hover {
 .line-draw.is-visible::after {
   animation: draw-line 1.5s var(--ease) forwards;
 }
+
+/* Scroll progress bar at the very top of the page */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* Text reveal animation - clips text and reveals */
+@keyframes text-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.text-reveal {
+  animation: text-reveal 0.8s var(--ease) forwards;
+}
+
+/* Counter animation for numbers */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Subtle float for decorative elements */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+.gentle-float {
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+/* Card 3D tilt hover effect */
+.card-tilt {
+  transition: transform 0.3s var(--ease);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(-2deg) rotateY(2deg) translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(232,148,76,0.05);
+}
+
+/* Magnetic hover effect for buttons */
+.btn-magnetic {
+  transition: transform 0.3s var(--ease);
+}
+
+/* Glowing border animation - enhanced */
+@keyframes border-pulse {
+  0%, 100% { border-color: rgba(232,148,76,0.2); box-shadow: 0 0 0 rgba(232,148,76,0); }
+  50% { border-color: rgba(232,148,76,0.5); box-shadow: 0 0 20px rgba(232,148,76,0.1); }
+}
+
+.border-pulse {
+  animation: border-pulse 3s ease-in-out infinite;
+}
+
+/* Stagger reveal for list items */
+.stagger-list > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.6s var(--ease);
+}
+
+.stagger-list.is-visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: none; }
+.stagger-list.is-visible > *:nth-child(2) { transition-delay: 0.08s; opacity: 1; transform: none; }
+.stagger-list.is-visible > *:nth-child(3) { transition-delay: 0.16s; opacity: 1; transform: none; }
+.stagger-list.is-visible > *:nth-child(4) { transition-delay: 0.24s; opacity: 1; transform: none; }
+.stagger-list.is-visible > *:nth-child(5) { transition-delay: 0.32s; opacity: 1; transform: none; }
+.stagger-list.is-visible > *:nth-child(6) { transition-delay: 0.40s; opacity: 1; transform: none; }
+
+/* Smooth underline animation for links */
+.animated-underline {
+  position: relative;
+}
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.4s var(--ease);
+}
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+/* Parallax scroll depth layers */
+.parallax-slow { will-change: transform; }
+.parallax-medium { will-change: transform; }
+.parallax-fast { will-change: transform; }

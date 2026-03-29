@@ -26,7 +26,10 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-[clamp(6rem,12vh,10rem)] relative" style={{ background: '#0C0C0E' }}>
+    <section className="py-[clamp(6rem,12vh,10rem)] relative overflow-hidden" style={{ background: '#0C0C0E' }}>
+      {/* Background decoration */}
+      <div className="absolute top-1/2 -right-32 w-64 h-64 bg-[rgba(232,148,76,0.05)] rounded-full blur-3xl" />
+      <div className="absolute bottom-0 -left-32 w-48 h-48 bg-[rgba(232,148,76,0.03)] rounded-full blur-3xl" />
       <div className="max-w-[1200px] mx-auto px-[clamp(1.5rem,4vw,4rem)]">
         {/* Header */}
         <div className="mb-16 text-center">
@@ -49,6 +52,14 @@ export default function ProcessSection() {
             className="hidden md:block absolute top-[2.25rem] left-[12.5%] right-[12.5%] h-px"
             style={{ background: 'rgba(242,239,232,0.08)' }}
           />
+          {/* Animated connecting line */}
+          <motion.div
+            className="hidden md:block absolute top-[2.25rem] left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent z-0"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          />
 
           {steps.map((step, i) => (
             <motion.div
@@ -67,12 +78,16 @@ export default function ProcessSection() {
                   border: '1px solid rgba(232,148,76,0.25)',
                 }}
               >
-                <span
+                <motion.span
                   className="text-2xl font-medium"
                   style={{ fontFamily: 'var(--font-mono)', color: '#E8944C' }}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.15, type: 'spring', stiffness: 200 }}
                 >
                   {step.number}
-                </span>
+                </motion.span>
               </div>
 
               {/* Vertical line connecting steps (mobile) */}

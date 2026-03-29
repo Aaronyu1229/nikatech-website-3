@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
 const footerLinks = [
@@ -11,7 +12,12 @@ const footerLinks = [
 
 export default function FooterSection() {
   return (
-    <footer className="py-16" style={{ background: '#141416', borderTop: '1px solid rgba(242,239,232,0.06)' }}>
+    <motion.footer
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="py-16" style={{ background: '#141416', borderTop: '1px solid rgba(242,239,232,0.06)' }}>
       <div className="max-w-[1200px] mx-auto px-[clamp(1.5rem,4vw,4rem)]">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-12">
           {/* Logo + tagline */}
@@ -32,7 +38,7 @@ export default function FooterSection() {
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-sm no-underline transition-colors duration-300 hover:text-[#F2EFE8]"
+                className="animated-underline text-sm no-underline transition-colors duration-300 hover:text-[#F2EFE8]"
                 style={{ color: '#9B978E' }}
               >
                 {link.label}
@@ -59,6 +65,6 @@ export default function FooterSection() {
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

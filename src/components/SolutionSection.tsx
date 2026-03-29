@@ -8,18 +8,24 @@ const layers = [
     icon: FileText,
     title: '內容引擎',
     description: 'AI 研究你的產業關鍵字 → 自動撰寫 SEO 文章 → 自動發佈到你的網站。每月穩定產出，不需要你動手。',
+    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80',
+    imageAlt: '內容撰寫',
   },
   {
     number: '02',
     icon: Brain,
     title: '數據大腦',
     description: '追蹤每篇文章的排名表現 → 自動分析哪些有效、哪些要調整 → 下個月的策略自動優化。越做越準，不是做完就丟。',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
+    imageAlt: '數據分析',
   },
   {
     number: '03',
     icon: Radio,
     title: '社群觸角',
     description: '監控 PTT、Dcard、Facebook、YouTube、Threads——有人提到你的品牌，第一時間通知你。主動經營口碑，讓網路上都在說你好。',
+    image: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=600&q=80',
+    imageAlt: '社群媒體',
   },
 ];
 
@@ -52,12 +58,22 @@ export default function SolutionSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.6, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="p-8 md:p-12 rounded-2xl"
+                className="card-tilt p-8 md:p-12 rounded-2xl overflow-hidden hover:border-accent/20 transition-colors duration-500"
                 style={{
                   background: '#141416',
                   border: '1px solid rgba(242,239,232,0.06)',
                 }}
               >
+                {/* Card image */}
+                <div className="relative h-48 mb-6 rounded-xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#141416] to-transparent z-10" />
+                  <img
+                    src={layer.image}
+                    alt={layer.imageAlt}
+                    className="w-full h-full object-cover opacity-60"
+                    loading="lazy"
+                  />
+                </div>
                 <div className="flex items-start gap-6">
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
