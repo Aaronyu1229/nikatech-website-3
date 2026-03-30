@@ -358,12 +358,12 @@ export default function Pricing() {
                     className={`block text-center py-3.5 rounded-lg font-semibold text-sm no-underline transition-all duration-300 ${
                       plan.ctaStyle === 'solid'
                         ? 'btn-shimmer'
-                        : 'border border-white/[0.1] hover:border-white/[0.2] hover:bg-white/[0.03]'
+                        : 'border border-[#E8944C]/40 text-[#E8944C] hover:bg-[#E8944C]/10 hover:border-[#E8944C]/60'
                     }`}
                     style={
                       plan.ctaStyle === 'solid'
-                        ? { background: 'var(--accent)', color: 'var(--bg-primary)' }
-                        : { color: 'var(--text-primary)' }
+                        ? { background: '#E8944C', color: '#0f0e0d' }
+                        : {}
                     }
                   >
                     {plan.ctaText}
