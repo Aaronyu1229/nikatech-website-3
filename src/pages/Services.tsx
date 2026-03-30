@@ -17,6 +17,9 @@ import {
   Bell,
   MessageCircle,
   Heart,
+  ArrowRight,
+  Sparkles,
+  BarChart3,
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import FooterSection from '@/components/FooterSection';
@@ -77,8 +80,10 @@ export default function Services() {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-8">
-          <div className="max-w-4xl mx-auto px-6 text-center">
+        <section className="pt-32 pb-8 relative overflow-hidden">
+          {/* Background glow orb */}
+          <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#E8944C]/[0.04] rounded-full blur-[120px] pointer-events-none" />
+          <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
             <motion.span
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -277,6 +282,65 @@ export default function Services() {
               </div>
             </motion.div>
 
+            {/* Content Pipeline Mockup */}
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="bg-[#1a1917] rounded-2xl border border-white/10 p-6 md:p-8 max-w-3xl mx-auto mb-12"
+            >
+              <div className="flex items-center gap-2 mb-6">
+                <Sparkles size={16} className="text-[#E8944C]" />
+                <span className="text-sm text-[#9B978E]">內容引擎運作流程</span>
+              </div>
+              <div className="grid grid-cols-3 gap-3 md:gap-4 items-center">
+                {/* Step 1 */}
+                <div className="text-center">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#E8944C]/10 border border-[#E8944C]/20 flex items-center justify-center mx-auto mb-3">
+                    <Search size={22} className="text-[#E8944C]" />
+                  </div>
+                  <p className="text-xs md:text-sm font-medium text-text-primary">AI 研究關鍵字</p>
+                  <p className="text-[10px] md:text-xs text-[#9B978E] mt-1">分析產業 + 找出機會字</p>
+                </div>
+                {/* Arrow */}
+                <div className="flex items-center justify-center -mt-6">
+                  <div className="flex items-center gap-1">
+                    <div className="w-8 md:w-12 h-px bg-gradient-to-r from-[#E8944C]/20 to-[#E8944C]/60" />
+                    <ArrowRight size={14} className="text-[#E8944C]/60" />
+                  </div>
+                </div>
+                {/* Step 2 */}
+                <div className="text-center">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#E8944C]/10 border border-[#E8944C]/20 flex items-center justify-center mx-auto mb-3">
+                    <FileText size={22} className="text-[#E8944C]" />
+                  </div>
+                  <p className="text-xs md:text-sm font-medium text-text-primary">自動寫文章</p>
+                  <p className="text-[10px] md:text-xs text-[#9B978E] mt-1">S/A/B 等級分配</p>
+                </div>
+              </div>
+              {/* Arrow down to step 3 */}
+              <div className="flex justify-end pr-[16%] my-3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#E8944C]/60"><path d="M12 5v14m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </div>
+              <div className="grid grid-cols-3 gap-3 md:gap-4 items-center">
+                <div />
+                <div />
+                <div className="text-center">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#E8944C]/10 border border-[#E8944C]/20 flex items-center justify-center mx-auto mb-3">
+                    <Upload size={22} className="text-[#E8944C]" />
+                  </div>
+                  <p className="text-xs md:text-sm font-medium text-text-primary">自動發佈上架</p>
+                  <p className="text-[10px] md:text-xs text-[#9B978E] mt-1">WordPress / Shopify</p>
+                </div>
+              </div>
+              {/* Result bar */}
+              <div className="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+                <span className="text-xs text-[#9B978E]">每月產出</span>
+                <span className="text-sm font-bold text-[#E8944C]">8-20 篇 SEO 文章</span>
+              </div>
+            </motion.div>
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {seoFeatures.map((item, i) => (
                 <motion.div
@@ -288,7 +352,9 @@ export default function Services() {
                   variants={fadeUp}
                   className="bg-white/[0.02] border border-white/5 rounded-lg p-4"
                 >
-                  <item.icon size={18} strokeWidth={1.5} className="text-[#E8944C] mb-2" />
+                  <div className="w-10 h-10 rounded-xl bg-[#E8944C]/10 border border-[#E8944C]/15 flex items-center justify-center mb-3">
+                    <item.icon size={18} strokeWidth={1.5} className="text-[#E8944C]" />
+                  </div>
                   <h3 className="text-text-primary text-sm font-medium mb-1">{item.title}</h3>
                   <p className="text-[#9B978E] text-xs leading-relaxed">{item.desc}</p>
                 </motion.div>
@@ -304,8 +370,10 @@ export default function Services() {
         </section>
 
         {/* Layer 2: Data Brain */}
-        <section id="layer2" className="py-20 border-t border-white/5" style={{ scrollMarginTop: '80px' }}>
-          <div className="max-w-5xl mx-auto px-6">
+        <section id="layer2" className="py-20 border-t border-white/5 relative overflow-hidden" style={{ scrollMarginTop: '80px' }}>
+          {/* Subtle background glow */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#E8944C]/[0.03] rounded-full blur-[150px] pointer-events-none" />
+          <div className="max-w-5xl mx-auto px-6 relative z-10">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <span className="text-[#E8944C] font-mono text-sm">02</span>
@@ -364,6 +432,32 @@ export default function Services() {
                 </div>
               </div>
 
+              {/* Mini trend line */}
+              <div className="mb-6 p-4 bg-white/[0.02] rounded-xl">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs text-[#9B978E] font-mono flex items-center gap-2"><BarChart3 size={14} className="text-[#E8944C]" />自然流量趨勢</span>
+                  <span className="text-xs text-green-400">▲ 持續成長</span>
+                </div>
+                <svg viewBox="0 0 300 60" className="w-full h-12">
+                  <defs>
+                    <linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#E8944C" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="#E8944C" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,50 L30,48 L60,45 L90,42 L120,38 L150,30 L180,24 L210,18 L240,14 L270,10 L300,6" fill="none" stroke="#E8944C" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M0,50 L30,48 L60,45 L90,42 L120,38 L150,30 L180,24 L210,18 L240,14 L270,10 L300,6 L300,60 L0,60 Z" fill="url(#trendGrad)" />
+                </svg>
+                <div className="flex justify-between mt-1">
+                  <span className="text-[10px] text-[#9B978E]/50">10 月</span>
+                  <span className="text-[10px] text-[#9B978E]/50">11 月</span>
+                  <span className="text-[10px] text-[#9B978E]/50">12 月</span>
+                  <span className="text-[10px] text-[#9B978E]/50">1 月</span>
+                  <span className="text-[10px] text-[#9B978E]/50">2 月</span>
+                  <span className="text-[10px] text-[#E8944C]">3 月</span>
+                </div>
+              </div>
+
               <p className="text-xs text-[#9B978E] mb-3 font-mono">關鍵字排名追蹤</p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
@@ -387,7 +481,9 @@ export default function Services() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {dataFeatures.map((item, i) => (
                 <motion.div key={item.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="bg-white/[0.02] border border-white/5 rounded-lg p-4">
-                  <item.icon size={18} strokeWidth={1.5} className="text-[#E8944C] mb-2" />
+                  <div className="w-10 h-10 rounded-xl bg-[#E8944C]/10 border border-[#E8944C]/15 flex items-center justify-center mb-3">
+                    <item.icon size={18} strokeWidth={1.5} className="text-[#E8944C]" />
+                  </div>
                   <h3 className="text-text-primary text-sm font-medium mb-1">{item.title}</h3>
                   <p className="text-[#9B978E] text-xs leading-relaxed">{item.desc}</p>
                 </motion.div>
@@ -464,7 +560,9 @@ export default function Services() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {geoFeatures.map((item, i) => (
                   <motion.div key={item.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="bg-black/20 border border-white/5 rounded-lg p-4">
-                    <item.icon size={18} strokeWidth={1.5} className="text-[#E8944C] mb-2" />
+                    <div className="w-10 h-10 rounded-xl bg-[#E8944C]/10 border border-[#E8944C]/15 flex items-center justify-center mb-3">
+                      <item.icon size={18} strokeWidth={1.5} className="text-[#E8944C]" />
+                    </div>
                     <h3 className="text-text-primary text-sm font-medium mb-1">{item.title}</h3>
                     <p className="text-[#9B978E] text-xs leading-relaxed">{item.desc}</p>
                   </motion.div>
@@ -481,8 +579,10 @@ export default function Services() {
         </section>
 
         {/* Layer 4: Social Radar */}
-        <section id="layer4" className="py-20 border-t border-white/5" style={{ scrollMarginTop: '80px' }}>
-          <div className="max-w-5xl mx-auto px-6">
+        <section id="layer4" className="py-20 border-t border-white/5 relative overflow-hidden" style={{ scrollMarginTop: '80px' }}>
+          {/* Subtle grid pattern bg */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #E8944C 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+          <div className="max-w-5xl mx-auto px-6 relative z-10">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <span className="text-[#E8944C] font-mono text-sm">04</span>
@@ -510,10 +610,28 @@ export default function Services() {
               </div>
             </motion.div>
 
-            {/* Platform badges */}
+            {/* Platform badges with brand colors */}
             <div className="flex flex-wrap gap-3 mb-8 justify-center">
-              {['PTT', 'Dcard', 'Facebook', 'YouTube', 'Threads'].map(p => (
-                <span key={p} className="px-4 py-2 rounded-full text-sm bg-white/5 border border-white/10 text-[#9B978E]">{p}</span>
+              {[
+                { name: 'PTT', color: '#4A7EBB', glow: 'rgba(74,126,187,0.15)' },
+                { name: 'Dcard', color: '#00BCD4', glow: 'rgba(0,188,212,0.15)' },
+                { name: 'Facebook', color: '#1877F2', glow: 'rgba(24,119,242,0.15)' },
+                { name: 'YouTube', color: '#FF0000', glow: 'rgba(255,0,0,0.12)' },
+                { name: 'Threads', color: '#FFFFFF', glow: 'rgba(255,255,255,0.08)' },
+              ].map(p => (
+                <span
+                  key={p.name}
+                  className="px-5 py-2.5 rounded-full text-sm font-medium border transition-all duration-300 hover:scale-105"
+                  style={{
+                    color: p.color,
+                    borderColor: `${p.color}30`,
+                    backgroundColor: p.glow,
+                    boxShadow: `0 0 20px ${p.glow}`,
+                  }}
+                >
+                  <span className="inline-block w-2 h-2 rounded-full mr-2 animate-pulse" style={{ backgroundColor: p.color }} />
+                  {p.name}
+                </span>
               ))}
             </div>
 
@@ -542,7 +660,9 @@ export default function Services() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {socialFeatures.map((item, i) => (
                 <motion.div key={item.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="bg-white/[0.02] border border-white/5 rounded-lg p-4">
-                  <item.icon size={18} strokeWidth={1.5} className="text-[#E8944C] mb-2" />
+                  <div className="w-10 h-10 rounded-xl bg-[#E8944C]/10 border border-[#E8944C]/15 flex items-center justify-center mb-3">
+                    <item.icon size={18} strokeWidth={1.5} className="text-[#E8944C]" />
+                  </div>
                   <h3 className="text-text-primary text-sm font-medium mb-1">{item.title}</h3>
                   <p className="text-[#9B978E] text-xs leading-relaxed">{item.desc}</p>
                 </motion.div>
