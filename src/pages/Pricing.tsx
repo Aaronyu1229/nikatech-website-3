@@ -162,8 +162,8 @@ export default function Pricing() {
                   variants={fadeUp}
                   className={`relative rounded-2xl p-8 flex flex-col ${
                     plan.recommended
-                      ? 'bg-nika-bg-tertiary border-2 border-nika-accent border-glow-pulse'
-                      : 'bg-nika-bg-secondary border border-white/[0.06]'
+                      ? 'bg-nika-bg-tertiary border-2 border-[#E8944C] transform scale-[1.03] shadow-[0_0_30px_rgba(232,148,76,0.15)]'
+                      : 'bg-nika-bg-secondary border border-white/[0.06] opacity-90'
                   }`}
                 >
                   {plan.recommended && (
@@ -172,7 +172,7 @@ export default function Pricing() {
                       <motion.span
                         animate={{ y: [0, -3, 0] }}
                         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                        className="absolute -top-3 right-6 bg-nika-accent text-nika-bg font-mono text-xs px-3 py-1 rounded-full font-semibold"
+                        className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#E8944C] text-black text-sm font-bold px-4 py-1 rounded-full"
                       >
                         推薦
                       </motion.span>

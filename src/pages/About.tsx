@@ -124,7 +124,7 @@ export default function About() {
         </section>
 
         {/* Brand Story */}
-        <section className="py-[var(--section-gap)]">
+        <section className="py-16">
           <div className="max-w-3xl mx-auto px-[var(--container-padding)]">
             <motion.span
               initial={{ opacity: 0, y: 16 }}

@@ -39,6 +39,7 @@ const labelClass = 'text-nika-text-secondary text-sm font-mono uppercase trackin
 export default function Contact() {
   const [hasWebsite, setHasWebsite] = useState<string>('');
   const [selectedProblems, setSelectedProblems] = useState<string[]>([]);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,7 +65,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.alert('已收到！我們會在 48 小時內回覆你。');
+    setSubmitted(true);
   };
 
   return (
@@ -112,6 +113,22 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="md:col-span-3"
               >
+                {submitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-16 bg-nika-bg-secondary rounded-2xl border border-white/[0.06] p-8"
+                  >
+                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E8944C]/10 flex items-center justify-center">
+                      <svg className="w-8 h-8 text-[#E8944C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-display text-text-primary mb-3">已收到你的資料！</h3>
+                    <p className="text-[#9B978E] text-lg">我們會在 48 小時內寄一份網站健檢報告給你。</p>
+                    <p className="text-[#9B978E] mt-2">有急事？直接加 LINE 最快。</p>
+                  </motion.div>
+                ) : (
                 <form
                   onSubmit={handleSubmit}
                   className="bg-nika-bg-secondary rounded-2xl border border-white/[0.06] p-8 space-y-6"
@@ -252,6 +269,7 @@ export default function Contact() {
                     送出評估申請
                   </button>
                 </form>
+                )}
               </motion.div>
 
               {/* Sidebar */}

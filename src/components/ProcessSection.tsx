@@ -92,10 +92,19 @@ export default function ProcessSection() {
 
               {/* Vertical line connecting steps (mobile) */}
               {i < steps.length - 1 && (
-                <div
-                  className="md:hidden absolute top-[4.5rem] left-1/2 w-px h-8 -translate-x-1/2"
-                  style={{ background: 'rgba(242,239,232,0.08)' }}
-                />
+                <>
+                  <div
+                    className="md:hidden absolute top-[4.5rem] left-1/2 w-px h-8 -translate-x-1/2"
+                    style={{ background: 'rgba(242,239,232,0.08)' }}
+                  />
+                  <motion.div
+                    initial={{ scaleY: 0 }}
+                    whileInView={{ scaleY: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="md:hidden w-px h-16 bg-gradient-to-b from-[#E8944C]/50 to-[#E8944C]/10 mx-auto origin-top mt-4"
+                  />
+                </>
               )}
 
               <h3 className="text-lg font-semibold mb-3 font-display" style={{ color: '#F2EFE8' }}>

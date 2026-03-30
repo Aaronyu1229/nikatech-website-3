@@ -116,6 +116,10 @@ export default function SolutionSection() {
           >
             看我們怎麼做到的 →
           </Link>
+          <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#E8944C] text-black font-semibold rounded-xl hover:bg-[#d4833f] transition-colors text-base ml-4">
+            免費評估你的網站
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          </a>
         </motion.div>
       </div>
     </section>

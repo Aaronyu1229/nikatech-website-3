@@ -66,6 +66,23 @@ export default function PainSection() {
         >
           這些問題，靠請一個人解決不了。你需要的是一套跑得動的系統。
         </motion.p>
+
+        <motion.div data-animate data-delay="3" className="mt-12 text-center">
+          <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#E8944C] text-black font-semibold rounded-xl hover:bg-[#d4833f] transition-colors text-base">
+            免費幫你的網站做健檢
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          </a>
+        </motion.div>
+
+        <div className="mt-16 flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, scaleY: 0 }}
+            whileInView={{ opacity: 1, scaleY: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-px h-20 bg-gradient-to-b from-[#E8944C] to-transparent origin-top"
+          />
+        </div>
       </div>
     </section>
   );

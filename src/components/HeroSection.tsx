@@ -143,18 +143,16 @@ export default function HeroSection() {
           <div className="absolute -inset-4 bg-accent/10 rounded-full blur-2xl animate-pulse" />
           <Link
             to="/contact"
-            className="btn-shimmer group inline-flex items-center gap-2 px-8 py-[0.875rem] rounded text-[0.9375rem] font-medium tracking-[0.03em] no-underline transition-all duration-300 hover:-translate-y-px hover:shadow-lg relative z-10"
-            style={{ fontFamily: 'var(--font-body)', background: '#E8944C', color: '#0C0C0E', boxShadow: '0 4px 20px rgba(232,148,76,0.25)' }}
+            className="btn-shimmer group inline-flex items-center gap-2 px-10 py-5 rounded-xl text-lg font-bold tracking-[0.03em] no-underline transition-all duration-300 hover:-translate-y-px hover:shadow-lg relative z-10"
+            style={{ fontFamily: 'var(--font-body)', background: '#E8944C', color: '#fff', boxShadow: '0 4px 30px rgba(232,148,76,0.35), 0 0 60px rgba(232,148,76,0.15)' }}
           >
             免費幫你的網站做健檢
-            <ArrowRight size={16} className="inline-block transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight size={18} className="inline-block transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <Link
             to="/pricing"
-            className="inline-flex items-center gap-2 px-8 py-[0.875rem] rounded text-[0.9375rem] font-medium no-underline transition-all duration-300 hover:-translate-y-px relative z-10"
-            style={{ fontFamily: 'var(--font-body)', color: '#F2EFE8', border: '1px solid rgba(242,239,232,0.06)', background: 'transparent' }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = '#242428')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+            className="inline-flex items-center gap-2 px-8 py-[0.875rem] rounded-xl text-base font-medium no-underline transition-all duration-300 hover:-translate-y-px hover:bg-white/5 border border-white/20 relative z-10"
+            style={{ fontFamily: 'var(--font-body)', color: '#F2EFE8', background: 'transparent' }}
           >
             先看看方案內容
           </Link>

@@ -55,9 +55,9 @@ export default function WhyUsSection() {
           </h2>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[clamp(1.5rem,3vw,2.5rem)]">
-          {cards.map((card, i) => {
+        {/* Primary cards - first 3 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[clamp(1.5rem,3vw,2.5rem)]">
+          {cards.slice(0, 3).map((card, i) => {
             const Icon = card.icon;
             return (
               <motion.div
@@ -89,6 +89,50 @@ export default function WhyUsSection() {
             );
           })}
         </div>
+
+        {/* Secondary cards - last 3 */}
+        <div className="mt-10">
+          <p className="text-sm uppercase tracking-[0.15em] mb-4 text-center" style={{ fontFamily: 'var(--font-mono)', color: '#5E5B55' }}>
+            還有這些
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {cards.slice(3).map((card, i) => (
+              <motion.div
+                key={i + 3}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="p-4 rounded-xl transition-all duration-500"
+                style={{
+                  background: '#111113',
+                  border: '1px solid rgba(242,239,232,0.04)',
+                }}
+              >
+                <h3 className="text-sm font-semibold mb-1" style={{ color: '#F2EFE8', fontFamily: 'var(--font-body)' }}>
+                  {card.title}
+                </h3>
+                <p className="text-xs leading-relaxed" style={{ color: '#9B978E' }}>
+                  {card.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 text-center"
+        >
+          <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#E8944C] text-black font-semibold rounded-xl hover:bg-[#d4833f] transition-colors text-base">
+            免費評估，看我們能幫什麼
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );

@@ -46,6 +46,9 @@ function ServiceSection({
   features,
   image,
   imageLeft = true,
+  highlight = false,
+  badge,
+  afterIntro,
 }: {
   tag: string;
   heading: string;
@@ -53,22 +56,32 @@ function ServiceSection({
   features: FeatureItem[];
   image?: string;
   imageLeft?: boolean;
+  highlight?: boolean;
+  badge?: string;
+  afterIntro?: React.ReactNode;
 }) {
   return (
     <section className="py-[var(--section-gap)]">
       <div className="max-w-[var(--container-max)] mx-auto px-[var(--container-padding)]">
+        <div className={highlight ? 'bg-gradient-to-r from-[#E8944C]/5 to-transparent rounded-2xl p-8 md:p-12 border border-[#E8944C]/10' : ''}>
         <div data-animate>
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-nika-text-tertiary border border-white/[0.06] rounded-full px-4 py-1.5 inline-block">
             {tag}
           </span>
+          {badge && (
+            <span className="ml-3 inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#E8944C] text-black">
+              {badge}
+            </span>
+          )}
         </div>
         <h2 data-animate data-delay="1" className="mt-6 mb-4">
           {heading}
         </h2>
-        <p data-animate data-delay="2" className="text-nika-text-secondary text-lg max-w-2xl mb-12">
+        <p data-animate data-delay="2" className="text-nika-text-secondary text-lg max-w-2xl mb-4">
           {intro}
         </p>
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+        {afterIntro}
+        <div className="mt-8 grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Image side */}
           {image && (
             <div className={`relative rounded-2xl overflow-hidden border border-white/[0.06] ${imageLeft ? 'order-2 md:order-1' : 'order-2'}`}>
@@ -94,6 +107,7 @@ function ServiceSection({
               </motion.div>
             ))}
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -207,6 +221,8 @@ export default function Services() {
           features={geoFeatures}
           image="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
           imageLeft={false}
+          highlight={true}
+          badge="差異化亮點"
         />
 
         <hr className="section-divider" />
@@ -231,6 +247,13 @@ export default function Services() {
           features={socialFeatures}
           image="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80"
           imageLeft={false}
+          afterIntro={
+            <div className="flex flex-wrap gap-3 mt-6 mb-8">
+              {['PTT', 'Dcard', 'Facebook', 'YouTube', 'Threads'].map(p => (
+                <span key={p} className="px-3 py-1 rounded-full text-sm bg-white/5 border border-white/10 text-[#9B978E]">{p}</span>
+              ))}
+            </div>
+          }
         />
 
         <hr className="section-divider" />

@@ -97,9 +97,16 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile CTA + hamburger */}
+        <div className="md:hidden flex items-center gap-3">
+          <Link
+            to="/contact"
+            className="bg-[#E8944C] text-black text-sm px-3 py-1.5 rounded-lg font-medium no-underline"
+          >
+            免費評估
+          </Link>
         <button
-          className="md:hidden flex flex-col gap-[5px] p-2"
+          className="flex flex-col gap-[5px] p-2"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -125,6 +132,7 @@ export default function Navbar() {
             }}
           />
         </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
