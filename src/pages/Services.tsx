@@ -24,6 +24,184 @@ import {
 import Navbar from '@/components/Navbar';
 import FooterSection from '@/components/FooterSection';
 
+/* ── Animated Abstract SVG Illustrations ── */
+
+// Floating network nodes — Hero background
+const NetworkNodesIllustration = () => (
+  <svg viewBox="0 0 400 300" className="w-full h-full" fill="none">
+    <style>{`
+      @keyframes nodeFloat1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(4px,-6px); } }
+      @keyframes nodeFloat2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-5px,4px); } }
+      @keyframes nodeFloat3 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(3px,5px); } }
+      @keyframes pulseRing { 0%,100% { r: 18; opacity: 0.1; } 50% { r: 24; opacity: 0.05; } }
+      .nf1 { animation: nodeFloat1 6s ease-in-out infinite; }
+      .nf2 { animation: nodeFloat2 8s ease-in-out infinite; }
+      .nf3 { animation: nodeFloat3 7s ease-in-out infinite; }
+    `}</style>
+    {/* Connection lines */}
+    <line x1="80" y1="60" x2="200" y2="120" stroke="#E8944C" strokeWidth="0.5" strokeOpacity="0.2" />
+    <line x1="200" y1="120" x2="320" y2="80" stroke="#E8944C" strokeWidth="0.5" strokeOpacity="0.15" />
+    <line x1="200" y1="120" x2="280" y2="200" stroke="#E8944C" strokeWidth="0.5" strokeOpacity="0.2" />
+    <line x1="120" y1="200" x2="200" y2="120" stroke="#E8944C" strokeWidth="0.5" strokeOpacity="0.15" />
+    <line x1="120" y1="200" x2="280" y2="200" stroke="#E8944C" strokeWidth="0.5" strokeOpacity="0.1" />
+    <line x1="80" y1="60" x2="120" y2="200" stroke="#E8944C" strokeWidth="0.5" strokeOpacity="0.1" />
+    <line x1="320" y1="80" x2="350" y2="180" stroke="#E8944C" strokeWidth="0.5" strokeOpacity="0.1" />
+    <line x1="280" y1="200" x2="350" y2="180" stroke="#E8944C" strokeWidth="0.5" strokeOpacity="0.15" />
+    {/* Animated nodes */}
+    <g className="nf1">
+      <circle cx="80" cy="60" r="4" fill="#E8944C" fillOpacity="0.3" />
+      <circle cx="80" cy="60" r="2" fill="#E8944C" fillOpacity="0.6" />
+    </g>
+    <g className="nf2">
+      <circle cx="200" cy="120" r="6" fill="#E8944C" fillOpacity="0.4" />
+      <circle cx="200" cy="120" r="3" fill="#E8944C" fillOpacity="0.8" />
+      <circle cx="200" cy="120" r="18" stroke="#E8944C" strokeWidth="0.5" strokeOpacity="0.1" fill="none" style={{ animation: 'pulseRing 4s ease-in-out infinite' }} />
+    </g>
+    <g className="nf3">
+      <circle cx="320" cy="80" r="3.5" fill="#E8944C" fillOpacity="0.25" />
+      <circle cx="320" cy="80" r="1.5" fill="#E8944C" fillOpacity="0.5" />
+    </g>
+    <g className="nf1">
+      <circle cx="120" cy="200" r="5" fill="#E8944C" fillOpacity="0.2" />
+      <circle cx="120" cy="200" r="2.5" fill="#E8944C" fillOpacity="0.5" />
+    </g>
+    <g className="nf2">
+      <circle cx="280" cy="200" r="4" fill="#E8944C" fillOpacity="0.3" />
+      <circle cx="280" cy="200" r="2" fill="#E8944C" fillOpacity="0.6" />
+    </g>
+    <g className="nf3">
+      <circle cx="350" cy="180" r="3" fill="#E8944C" fillOpacity="0.2" />
+      <circle cx="350" cy="180" r="1.5" fill="#E8944C" fillOpacity="0.4" />
+    </g>
+  </svg>
+);
+
+// Animated data circuit for Layer 2
+const CircuitIllustration = () => (
+  <svg viewBox="0 0 200 200" className="w-full h-full" fill="none">
+    <style>{`
+      @keyframes dashFlow { 0% { stroke-dashoffset: 20; } 100% { stroke-dashoffset: 0; } }
+      @keyframes junctionPulse { 0%,100% { r: 3; fill-opacity: 0.3; } 50% { r: 5; fill-opacity: 0.6; } }
+      .cf { stroke-dasharray: 5 5; animation: dashFlow 3s linear infinite; }
+    `}</style>
+    <defs>
+      <linearGradient id="circuitGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#E8944C" stopOpacity="0.3" />
+        <stop offset="100%" stopColor="#E8944C" stopOpacity="0.08" />
+      </linearGradient>
+    </defs>
+    <path d="M20,100 L60,100 L60,40 L120,40" stroke="url(#circuitGrad)" strokeWidth="1.5" strokeLinecap="round" className="cf" />
+    <path d="M20,140 L80,140 L80,100 L140,100" stroke="url(#circuitGrad)" strokeWidth="1.5" strokeLinecap="round" className="cf" style={{ animationDelay: '0.5s' }} />
+    <path d="M120,40 L120,80 L180,80" stroke="url(#circuitGrad)" strokeWidth="1.5" strokeLinecap="round" className="cf" style={{ animationDelay: '1s' }} />
+    <path d="M140,100 L140,160 L180,160" stroke="url(#circuitGrad)" strokeWidth="1.5" strokeLinecap="round" className="cf" style={{ animationDelay: '1.5s' }} />
+    <circle cx="60" cy="100" r="3" fill="#E8944C" fillOpacity="0.4" />
+    <circle cx="120" cy="40" r="3" fill="#E8944C" fillOpacity="0.3" />
+    <circle cx="80" cy="140" r="3" fill="#E8944C" fillOpacity="0.3" />
+    <circle cx="140" cy="100" r="4" fill="#E8944C" style={{ animation: 'junctionPulse 3s ease-in-out infinite' }} />
+    <rect x="176" y="74" width="8" height="12" rx="2" fill="#E8944C" fillOpacity="0.2" stroke="#E8944C" strokeOpacity="0.3" strokeWidth="0.5" />
+    <rect x="176" y="154" width="8" height="12" rx="2" fill="#E8944C" fillOpacity="0.2" stroke="#E8944C" strokeOpacity="0.3" strokeWidth="0.5" />
+  </svg>
+);
+
+// Animated concentric rings for GEO section
+const ConcentricRingsIllustration = () => (
+  <svg viewBox="0 0 200 200" className="w-full h-full" fill="none">
+    <style>{`
+      @keyframes ringExpand1 { 0%,100% { r: 30; stroke-opacity: 0.2; } 50% { r: 34; stroke-opacity: 0.12; } }
+      @keyframes ringExpand2 { 0%,100% { r: 50; stroke-opacity: 0.15; } 50% { r: 55; stroke-opacity: 0.08; } }
+      @keyframes ringExpand3 { 0%,100% { r: 70; stroke-opacity: 0.1; } 50% { r: 76; stroke-opacity: 0.05; } }
+      @keyframes orbitDot { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      .orbit { transform-origin: 100px 100px; animation: orbitDot 12s linear infinite; }
+    `}</style>
+    <defs>
+      <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor="#E8944C" stopOpacity="0.12" />
+        <stop offset="100%" stopColor="#E8944C" stopOpacity="0" />
+      </radialGradient>
+    </defs>
+    <circle cx="100" cy="100" r="85" fill="url(#ringGlow)" />
+    <circle cx="100" cy="100" r="70" stroke="#E8944C" strokeWidth="0.5" strokeDasharray="4 6" style={{ animation: 'ringExpand3 5s ease-in-out infinite' }} />
+    <circle cx="100" cy="100" r="50" stroke="#E8944C" strokeWidth="0.7" strokeDasharray="3 5" style={{ animation: 'ringExpand2 4s ease-in-out infinite' }} />
+    <circle cx="100" cy="100" r="30" stroke="#E8944C" strokeWidth="1" style={{ animation: 'ringExpand1 3s ease-in-out infinite' }} />
+    <circle cx="100" cy="100" r="8" fill="#E8944C" fillOpacity="0.3" />
+    <circle cx="100" cy="100" r="4" fill="#E8944C" fillOpacity="0.6" />
+    {/* Orbiting dots */}
+    <g className="orbit">
+      <circle cx="100" cy="30" r="2.5" fill="#E8944C" fillOpacity="0.5" />
+    </g>
+    <g className="orbit" style={{ animationDuration: '18s', animationDirection: 'reverse' }}>
+      <circle cx="150" cy="100" r="2" fill="#E8944C" fillOpacity="0.35" />
+    </g>
+    <g className="orbit" style={{ animationDuration: '15s' }}>
+      <circle cx="65" cy="140" r="3" fill="#E8944C" fillOpacity="0.4" />
+    </g>
+  </svg>
+);
+
+// Animated radar sweep for Layer 4
+const RadarSweepIllustration = () => (
+  <svg viewBox="0 0 200 200" className="w-full h-full" fill="none">
+    <style>{`
+      @keyframes radarSweep { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      @keyframes blipPing { 0%,70%,100% { r: 3; fill-opacity: 0.6; } 80% { r: 6; fill-opacity: 0.2; } }
+      .sweep { transform-origin: 100px 100px; animation: radarSweep 6s linear infinite; }
+    `}</style>
+    <defs>
+      <linearGradient id="sweepGrad" x1="0.5" y1="0.5" x2="0.8" y2="0.1">
+        <stop offset="0%" stopColor="#E8944C" stopOpacity="0.15" />
+        <stop offset="100%" stopColor="#E8944C" stopOpacity="0" />
+      </linearGradient>
+    </defs>
+    {/* Grid circles */}
+    <circle cx="100" cy="100" r="80" stroke="#E8944C" strokeWidth="0.4" strokeOpacity="0.08" />
+    <circle cx="100" cy="100" r="60" stroke="#E8944C" strokeWidth="0.4" strokeOpacity="0.1" />
+    <circle cx="100" cy="100" r="40" stroke="#E8944C" strokeWidth="0.4" strokeOpacity="0.12" />
+    <circle cx="100" cy="100" r="20" stroke="#E8944C" strokeWidth="0.4" strokeOpacity="0.15" />
+    {/* Cross lines */}
+    <line x1="20" y1="100" x2="180" y2="100" stroke="#E8944C" strokeWidth="0.3" strokeOpacity="0.08" />
+    <line x1="100" y1="20" x2="100" y2="180" stroke="#E8944C" strokeWidth="0.3" strokeOpacity="0.08" />
+    {/* Animated sweep */}
+    <g className="sweep">
+      <path d="M100,100 L100,20 A80,80 0 0,1 166,55 Z" fill="url(#sweepGrad)" />
+      <line x1="100" y1="100" x2="100" y2="20" stroke="#E8944C" strokeWidth="0.8" strokeOpacity="0.3" />
+    </g>
+    {/* Blips */}
+    <circle cx="130" cy="55" r="3" fill="#E8944C" style={{ animation: 'blipPing 3s ease-in-out infinite' }} />
+    <circle cx="75" cy="70" r="2" fill="#E8944C" fillOpacity="0.4" style={{ animation: 'blipPing 3s ease-in-out infinite 1s' }} />
+    <circle cx="140" cy="120" r="2.5" fill="#E8944C" fillOpacity="0.35" style={{ animation: 'blipPing 3s ease-in-out infinite 2s' }} />
+    <circle cx="60" cy="130" r="2" fill="#E8944C" fillOpacity="0.25" />
+    {/* Center */}
+    <circle cx="100" cy="100" r="3" fill="#E8944C" fillOpacity="0.5" />
+  </svg>
+);
+
+// Content flow particles for Layer 1
+const ContentFlowIllustration = () => (
+  <svg viewBox="0 0 200 200" className="w-full h-full" fill="none">
+    <style>{`
+      @keyframes particleUp1 { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 0.6; } 80% { opacity: 0.6; } 100% { transform: translateY(-80px); opacity: 0; } }
+      @keyframes particleUp2 { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 0.4; } 80% { opacity: 0.4; } 100% { transform: translateY(-60px); opacity: 0; } }
+      .pu1 { animation: particleUp1 4s ease-out infinite; }
+      .pu2 { animation: particleUp2 5s ease-out infinite; }
+    `}</style>
+    {/* Document stack */}
+    <rect x="60" y="120" width="80" height="60" rx="6" fill="#E8944C" fillOpacity="0.05" stroke="#E8944C" strokeOpacity="0.15" strokeWidth="1" />
+    <rect x="68" y="112" width="80" height="60" rx="6" fill="#E8944C" fillOpacity="0.08" stroke="#E8944C" strokeOpacity="0.2" strokeWidth="1" />
+    <rect x="76" y="104" width="80" height="60" rx="6" fill="#E8944C" fillOpacity="0.12" stroke="#E8944C" strokeOpacity="0.25" strokeWidth="1" />
+    {/* Text lines on top doc */}
+    <line x1="86" y1="118" x2="130" y2="118" stroke="#E8944C" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round" />
+    <line x1="86" y1="128" x2="146" y2="128" stroke="#E8944C" strokeWidth="1.5" strokeOpacity="0.2" strokeLinecap="round" />
+    <line x1="86" y1="138" x2="120" y2="138" stroke="#E8944C" strokeWidth="1.5" strokeOpacity="0.2" strokeLinecap="round" />
+    <line x1="86" y1="148" x2="140" y2="148" stroke="#E8944C" strokeWidth="1.5" strokeOpacity="0.15" strokeLinecap="round" />
+    {/* Rising particles */}
+    <circle cx="95" cy="95" r="2" fill="#E8944C" className="pu1" />
+    <circle cx="115" cy="98" r="1.5" fill="#E8944C" className="pu2" style={{ animationDelay: '1s' }} />
+    <circle cx="135" cy="92" r="2" fill="#E8944C" className="pu1" style={{ animationDelay: '2s' }} />
+    <circle cx="105" cy="100" r="1" fill="#E8944C" className="pu2" style={{ animationDelay: '0.5s' }} />
+    <circle cx="125" cy="96" r="1.5" fill="#E8944C" className="pu1" style={{ animationDelay: '3s' }} />
+  </svg>
+);
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
@@ -83,6 +261,13 @@ export default function Services() {
         <section className="pt-32 pb-8 relative overflow-hidden">
           {/* Background glow orb */}
           <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#E8944C]/[0.04] rounded-full blur-[120px] pointer-events-none" />
+          {/* Abstract network nodes */}
+          <div className="absolute top-16 left-0 w-[500px] h-[350px] pointer-events-none opacity-40 hidden md:block">
+            <NetworkNodesIllustration />
+          </div>
+          <div className="absolute top-16 right-0 w-[500px] h-[350px] pointer-events-none opacity-40 hidden md:block" style={{ transform: 'scaleX(-1)' }}>
+            <NetworkNodesIllustration />
+          </div>
           <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
             <motion.span
               initial={{ opacity: 0, y: 16 }}
@@ -247,8 +432,12 @@ export default function Services() {
         </section>
 
         {/* Layer 1: Content Engine */}
-        <section id="layer1" className="py-20 border-t border-white/5" style={{ scrollMarginTop: '80px' }}>
-          <div className="max-w-5xl mx-auto px-6">
+        <section id="layer1" className="py-20 border-t border-white/5 relative overflow-hidden" style={{ scrollMarginTop: '80px' }}>
+          {/* Abstract content flow illustration */}
+          <div className="absolute -right-8 top-20 w-[220px] h-[220px] pointer-events-none opacity-50 hidden lg:block">
+            <ContentFlowIllustration />
+          </div>
+          <div className="max-w-5xl mx-auto px-6 relative z-10">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <span className="text-[#E8944C] font-mono text-sm">01</span>
@@ -373,6 +562,10 @@ export default function Services() {
         <section id="layer2" className="py-20 border-t border-white/5 relative overflow-hidden" style={{ scrollMarginTop: '80px' }}>
           {/* Subtle background glow */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#E8944C]/[0.03] rounded-full blur-[150px] pointer-events-none" />
+          {/* Abstract circuit illustration */}
+          <div className="absolute -left-4 top-32 w-[200px] h-[200px] pointer-events-none opacity-50 hidden lg:block">
+            <CircuitIllustration />
+          </div>
           <div className="max-w-5xl mx-auto px-6 relative z-10">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
@@ -499,8 +692,12 @@ export default function Services() {
         </section>
 
         {/* Layer 3: GEO - STANDOUT */}
-        <section id="layer3" className="py-20" style={{ scrollMarginTop: '80px' }}>
-          <div className="max-w-5xl mx-auto px-6">
+        <section id="layer3" className="py-20 relative overflow-hidden" style={{ scrollMarginTop: '80px' }}>
+          {/* Abstract concentric rings */}
+          <div className="absolute -right-16 top-10 w-[280px] h-[280px] pointer-events-none opacity-40 hidden lg:block">
+            <ConcentricRingsIllustration />
+          </div>
+          <div className="max-w-5xl mx-auto px-6 relative z-10">
             <div className="bg-gradient-to-br from-[#E8944C]/[0.06] via-transparent to-[#E8944C]/[0.03] border border-[#E8944C]/10 rounded-3xl p-8 md:p-12">
               <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
                 <div className="flex items-center gap-3">
@@ -582,6 +779,10 @@ export default function Services() {
         <section id="layer4" className="py-20 border-t border-white/5 relative overflow-hidden" style={{ scrollMarginTop: '80px' }}>
           {/* Subtle grid pattern bg */}
           <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #E8944C 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+          {/* Animated radar sweep illustration */}
+          <div className="absolute -left-8 top-24 w-[240px] h-[240px] pointer-events-none opacity-40 hidden lg:block">
+            <RadarSweepIllustration />
+          </div>
           <div className="max-w-5xl mx-auto px-6 relative z-10">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
