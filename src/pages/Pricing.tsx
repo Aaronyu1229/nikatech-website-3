@@ -582,7 +582,7 @@ export default function Pricing() {
               <Link
                 to="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-sm no-underline transition-all duration-300 btn-shimmer"
-                style={{ background: 'var(--accent)', color: 'var(--bg-primary)' }}
+                style={{ background: '#E8944C', color: '#0f0e0d' }}
               >
                 申請免費網站健檢
                 <ArrowUpRight size={16} />
