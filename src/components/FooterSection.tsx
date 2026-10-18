@@ -32,7 +32,6 @@ export default function FooterSection() {
             </p>
             <div className="mt-4 space-y-1">
               <p className="text-xs" style={{ color: '#5E5B55' }}>服務時間：週一至週五 09:00 - 18:00</p>
-              <p className="text-xs" style={{ color: '#5E5B55' }}>Email：hello@nikatech.com</p>
             </div>
           </div>
 
